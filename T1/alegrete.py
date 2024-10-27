@@ -1,5 +1,5 @@
 import numpy as np
-
+import csv  
 
 def compute_mse(b, w, data):
     """
@@ -9,7 +9,16 @@ def compute_mse(b, w, data):
     :param data: np.array - matriz com o conjunto de dados, x na coluna 0 e y na coluna 1
     :return: float - o erro quadratico medio
     """
-    raise NotImplementedError  # substituir pelo seu codigo
+    x = data[:,0]
+    y = data[:,1]
+    n = len(data)
+    mse = 0
+    for i in range (n):
+        mse += (y[i] - (w*x[i] + b))**2
+    mse = mse/n
+    print(f"Mean Squared Error: ", mse)
+    return mse    
+    
 
 
 def step_gradient(b, w, data, alpha):
@@ -40,3 +49,5 @@ def fit(data, b, w, alpha, num_iterations):
     :return: list,list - uma lista com os b e outra com os w obtidos ao longo da execução
     """
     raise NotImplementedError  # substituir pelo seu codigo
+
+
