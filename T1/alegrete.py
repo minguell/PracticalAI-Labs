@@ -1,5 +1,3 @@
-import numpy as np
-
 def compute_mse(b, w, data):
     """
     Calcula o erro quadratico medio
@@ -62,11 +60,9 @@ def fit(data, b, w, alpha, num_iterations):
     b_history = [b]
     w_history = [w]
 
-    for i in range(num_iterations)
+    for i in range(num_iterations):
         b, w = step_gradient(b, w, data, alpha)
         b_history.append(b)
         w_history.append(w)
 
-return b_history, w_history
-
-
+    return b_history, w_history
