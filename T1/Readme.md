@@ -53,17 +53,9 @@ Neste ponto, avaliou-se a biblioteca Tensorflow/Keras para modelar redes
 neurais que geram hipóteses para os clássicos datasets que são detalhados
 abaixo:
 
-- Informações sobre os Datasets:
+### 2.1. Informações sobre os Datasets:
 
-  - MNIST:
-
-    - Número de Classes: ?;
-
-    - Número de Amostras: ?;
-
-    - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
-
-  - Fashion MNIST:
+- MNIST:
 
     - Número de Classes: ?;
 
@@ -71,7 +63,7 @@ abaixo:
 
     - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
 
-  - CIFAR-10:
+- Fashion MNIST:
 
     - Número de Classes: ?;
 
@@ -79,7 +71,15 @@ abaixo:
 
     - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
 
-  - CIFAR-100:
+- CIFAR-10:
+
+    - Número de Classes: ?;
+
+    - Número de Amostras: ?;
+
+    - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
+
+- CIFAR-100:
 
     - Número de Classes: ?;
 
@@ -90,217 +90,217 @@ abaixo:
 Para cada dataset, foram testados as seguintes cinco configurações de 
 modelos com as respectivas acurácias e erro médio no final do treinamento:
 
-- Modelos Implementados para cada Dataset:
+### 2.2. Modelos Implementados para cada Dataset:
 
-  - MNIST:
-
-    - Modelo 1:
-       
-      - ...
-
-      - Acurácia Final: ?;
-
-      - Erro Médio Final: ?.
-
-    - Modelo 2:
-       
-      - ...
-
-      - Acurácia Final: ?;
-
-      - Erro Médio Final: ?.
-
-    - Modelo 3:
-       
-      - ...
-
-      - Acurácia Final: ?;
-
-      - Erro Médio Final: ?.
-
-    - Modelo 4:
-       
-      - ...
-
-      - Acurácia Final: ?;
-
-      - Erro Médio Final: ?.
-
-    - Modelo 5:
-       
-      - ...
-
-      - Acurácia Final: ?;
-
-      - Erro Médio Final: ?.
-
-  - Fashion MNIST:
+- MNIST:
 
     - Modelo 1:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 2:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 3:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 4:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 5:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
-  - CIFAR-10:
+- Fashion MNIST:
 
     - Modelo 1:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 2:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 3:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 4:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 5:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
-  - CIFAR-100:
+- CIFAR-10:
 
     - Modelo 1:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 2:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 3:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 4:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
 
     - Modelo 5:
        
-      - ...
+        - ...
 
-      - Acurácia Final: ?;
+        - Acurácia Final: ?;
 
-      - Erro Médio Final: ?.
+        - Erro Médio Final: ?.
+
+- CIFAR-100:
+
+    - Modelo 1:
+       
+        - ...
+
+        - Acurácia Final: ?;
+
+        - Erro Médio Final: ?.
+
+    - Modelo 2:
+       
+        - ...
+
+        - Acurácia Final: ?;
+
+        - Erro Médio Final: ?.
+
+    - Modelo 3:
+       
+        - ...
+
+        - Acurácia Final: ?;
+
+        - Erro Médio Final: ?.
+
+    - Modelo 4:
+       
+        - ...
+
+        - Acurácia Final: ?;
+
+        - Erro Médio Final: ?.
+
+    - Modelo 5:
+       
+        - ...
+
+        - Acurácia Final: ?;
+
+        - Erro Médio Final: ?.
 
 Com todos esses dados, obteve-se uma relação de ordem de dificuldade entre
 os datasets. Abaixo, em ordem de facilidade (o primeiro é mais fácil que o
 segundo e assim por diante), estão listados os datasets com as suas respectivas
 justificativas para estarem nas suas posições do ranking:
 
-- Ranking de Facilidade dos Datasets:
+### 2.3. Ranking de Facilidade dos Datasets:
 
-  1. dataset_mais_facil:
+1. dataset_mais_facil:
 
-     - Justificativa...
+    - Justificativa...
 
-  2. segundo_dataset_mais_facil:
+2. segundo_dataset_mais_facil:
 
-     - Justificativa...
+    - Justificativa...
 
-  3. segundo_dataset_mais_dificil:
+3. segundo_dataset_mais_dificil:
 
-     - Justificativa...
+    - Justificativa...
 
-  4. dataset_mais_dificil:
+4. dataset_mais_dificil:
 
-     - Justificativa...
+    - Justificativa...
 
 Por fim, realizou-se uma análise dos melhores resultados obtidos para cada
 dataset, buscando-se explicar o porquê dessas performances junto do histórico
 dos modelos construídos:
 
-- Análise dos Resultados:
+### 2.4. Análise dos Resultados:
 
-  - MNIST:
-
-    - Análise...
-
-  - Fashion MNIST:
+- MNIST:
 
     - Análise...
 
-  - CIFAR-10:
+- Fashion MNIST:
 
     - Análise...
 
-  - CIFAR-100:
+- CIFAR-10:
+
+    - Análise...
+
+- CIFAR-100:
 
     - Análise...
