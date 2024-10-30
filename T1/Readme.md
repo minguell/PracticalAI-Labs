@@ -41,7 +41,7 @@ Os dados de entrada foram normalizados através da função max-min
 (colocando os valores de entrada no intervalo de 0 a 1).
 
 A inicialização com `b = ?`, `w = ?`, `alpha = ?` e `num_iterations = ?`
-trouxeram o melhor resultado que o grupo conseguiu obter.
+trouxe o melhor resultado que o grupo conseguiu obter.
 
 O erro quadrático médio final obtido com os parâmetros e hiperparâmetros
 iniciais que mais otimizaram a hipótese do modelo foi de
@@ -53,7 +53,7 @@ Neste ponto, avaliou-se a biblioteca Tensorflow/Keras para modelar redes
 neurais que geram hipóteses para os clássicos datasets que são detalhados
 abaixo:
 
-- Informações sobre os datasets:
+- Informações sobre os Datasets:
 
   - MNIST:
 
@@ -87,10 +87,10 @@ abaixo:
 
     - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
 
-Para cada dataset, foram testados as seguintes cinco configurações com as
-respectivas acurácias e erro médio no final do treinamento:
+Para cada dataset, foram testados as seguintes cinco configurações de 
+modelos com as respectivas acurácias e erro médio no final do treinamento:
 
-- Modelos implementados para cada dataset:
+- Modelos Implementados para cada Dataset:
 
   - MNIST:
 
