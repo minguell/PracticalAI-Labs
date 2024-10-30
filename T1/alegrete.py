@@ -59,6 +59,14 @@ def fit(data, b, w, alpha, num_iterations):
     :param num_iterations: int - numero de épocas/iterações para executar a descida de gradiente
     :return: list,list - uma lista com os b e outra com os w obtidos ao longo da execução
     """
-    raise NotImplementedError  # bacalhau
+    b_history = [b]
+    w_history = [w]
+
+    for i in range(num_iterations)
+        b, w = step_gradient(b, w, data, alpha)
+        b_history.append(b)
+        w_history.append(w)
+
+return b_history, w_history
 
 
