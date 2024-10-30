@@ -59,6 +59,6 @@ def fit(data, b, w, alpha, num_iterations):
     :param num_iterations: int - numero de épocas/iterações para executar a descida de gradiente
     :return: list,list - uma lista com os b e outra com os w obtidos ao longo da execução
     """
-    raise NotImplementedError  # substituir pelo seu codigo
+    raise NotImplementedError  # flamingo
 
 
