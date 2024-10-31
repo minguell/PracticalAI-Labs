@@ -69,7 +69,6 @@ abaixo:
 
     - Número de Amostras: 60000 de treinamento e 10000 de teste;
 
-
     - Tamanho das Imagens: 28 x 28 x 1 (altura x largura x canais de cor).
 
 - CIFAR-10:
@@ -217,9 +216,11 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
 
-        - Uso de Dropout, técnica que consiste em desativar neurônios aleatoriamente para reduzir o           overtfitting, uma vez que força o modelo a ser mais robusto. Foram usados Dropout de 20% e de 40%.
+        - Uso de Dropout, técnica que consiste em desativar neurônios aleatoriamente para reduzir o overtfitting,
+        uma vez que força o modelo a ser mais robusto. Foram usados Dropout de 20% e de 40%;
 
-        - Uso do hiperparametro LearningRate, que determina o tamanho dos passos e a velocidade de aprendizado, impedindo que o modelo "pule" certas etapas do aprendizado 
+        - Uso do hiperparametro LearningRate, que determina o tamanho dos passos e a velocidade de aprendizado,
+        impedindo que o modelo "pule" certas etapas do aprendizado;
 
         - Acurácia Final: 86,29%;
 
