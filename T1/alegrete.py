@@ -32,8 +32,8 @@ def step_gradient(b, w, data, alpha):
     part_deriv_b = 0
     part_deriv_w = 0
     for i in range(n):
-        part_deriv_b += -2*(y[i] - (w*x[i] + b))
-        part_deriv_w += -2*x[i]*(y[i] - (w*x[i] + b))
+        part_deriv_b -= 2*(y[i] - (w*x[i] + b))
+        part_deriv_w -= 2*x[i]*(y[i] - (w*x[i] + b))
     part_deriv_b = part_deriv_b/n
     part_deriv_w = part_deriv_w/n
 
