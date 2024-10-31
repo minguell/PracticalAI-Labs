@@ -57,11 +57,11 @@ abaixo:
 
 - MNIST:
 
-    - Número de Classes: ?;
+    - Número de Classes: 10;
 
-    - Número de Amostras: ?;
+    - Número de Amostras: 60000 de treinamento e 10000 de teste;
 
-    - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
+    - Tamanho das Imagens: 28 x 28 x 1 (altura x largura x canais de cor).
 
 - Fashion MNIST:
 
@@ -74,19 +74,19 @@ abaixo:
 
 - CIFAR-10:
 
-    - Número de Classes: ?;
+    - Número de Classes: 10;
 
-    - Número de Amostras: ?;
+    - Número de Amostras: 50000 de treinamento e 10000 de teste;
 
-    - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
+    - Tamanho das Imagens: 32 x 32 x 3 (altura x largura x canais de cor).
 
 - CIFAR-100:
 
-    - Número de Classes: ?;
+    - Número de Classes: 100;
 
-    - Número de Amostras: ?;
+    - Número de Amostras: 50000 de treinamento e 10000 de teste;
 
-    - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
+    - Tamanho das Imagens: 32 x 32 x 3 (altura x largura x canais de cor).
 
 Para cada dataset, foram testados as seguintes cinco configurações de 
 modelos com as respectivas acurácias e erro médio no final do treinamento:
