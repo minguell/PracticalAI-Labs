@@ -100,7 +100,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 2:
        
@@ -108,7 +108,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 3:
        
@@ -116,7 +116,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 4:
        
@@ -124,7 +124,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 5:
        
@@ -132,7 +132,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
 - Fashion MNIST:
 
@@ -142,7 +142,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 2:
        
@@ -150,7 +150,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 3:
        
@@ -158,7 +158,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 4:
        
@@ -166,7 +166,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 5:
        
@@ -174,7 +174,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
 - CIFAR-10:
 
@@ -184,7 +184,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 2:
        
@@ -192,7 +192,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 3:
        
@@ -200,7 +200,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 4:
        
@@ -208,7 +208,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 5:
        
@@ -216,7 +216,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
 - CIFAR-100:
 
@@ -226,7 +226,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 2:
        
@@ -234,7 +234,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 3:
        
@@ -242,7 +242,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 4:
        
@@ -250,7 +250,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 5:
        
@@ -258,7 +258,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
 Com todos esses dados, obteve-se uma relação de ordem de dificuldade entre
 os datasets. Abaixo, em ordem de facilidade (o primeiro é mais fácil que o
