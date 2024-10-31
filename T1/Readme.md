@@ -67,7 +67,8 @@ abaixo:
 
     - Número de Classes: 10;
 
-    - Número de Amostras: 1875;
+    - Número de Amostras: 60000 de treinamento e 10000 de teste;
+
 
     - Tamanho das Imagens: 28 x 28 x 1 (altura x largura x canais de cor).
 
@@ -144,7 +145,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Uso de MaxPooling 2x2 e Flatten;
 
-        - MLP com camada oculta de 64 neurônios e camada final  de 10 neurônios com Softmax;
+        - MLP com camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
 
 
         - Acurácia Final: 89,48%;
@@ -153,35 +154,59 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
     - Modelo 2:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 3x3;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com camada oculta de 256 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,18%;
+
+        - Perda Final: 50,88%.
 
     - Modelo 3:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 64 Kernels com janela de 3x3;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,06%;
+
+        - Perda Final: 41,96%.
 
     - Modelo 4:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 3x3;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com duas camadas ocultas de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,46%;
+
+        - Perda Final: 39,20%;
 
     - Modelo 5:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Duas camadas CNNs com 64 Kernels na primeira e 128 Kernels na segunnda, ambas com janela de 3x3;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,42%;
+
+        - Perda Final: 36,80%;
 
 - CIFAR-10:
 
