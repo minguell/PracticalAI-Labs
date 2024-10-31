@@ -40,12 +40,12 @@ que utiliza o método de regressão linear.
 Os dados de entrada foram normalizados através da função max-min
 (colocando os valores de entrada no intervalo de 0 a 1).
 
-A inicialização com `b = ?`, `w = ?`, `alpha = ?` e `num_iterations = ?`
+A inicialização com `b = 0`, `w = 1`, `alpha = 0.8` e `num_iterations = 100`
 trouxe o melhor resultado que o grupo conseguiu obter.
 
 O erro quadrático médio final obtido com os parâmetros e hiperparâmetros
 iniciais que mais otimizaram a hipótese do modelo foi de
-`mse<sub>f</sub> = ?`.
+`mse<sub>f</sub> = 0.014802014491336607`.
 
 ## 2. Tensorflow/Keras
 
@@ -53,7 +53,7 @@ Neste ponto, avaliou-se a biblioteca Tensorflow/Keras para modelar redes
 neurais que geram hipóteses para os clássicos datasets que são detalhados
 abaixo:
 
-### 2.1. Informações sobre os Datasets:
+### 2.1. Informações sobre os Datasets
 
 - MNIST:
 
@@ -90,7 +90,7 @@ abaixo:
 Para cada dataset, foram testados as seguintes cinco configurações de 
 modelos com as respectivas acurácias e erro médio no final do treinamento:
 
-### 2.2. Modelos Implementados para cada Dataset:
+### 2.2. Modelos Implementados para cada Dataset
 
 - MNIST:
 
@@ -265,7 +265,7 @@ os datasets. Abaixo, em ordem de facilidade (o primeiro é mais fácil que o
 segundo e assim por diante), estão listados os datasets com as suas respectivas
 justificativas para estarem nas suas posições do ranking:
 
-### 2.3. Ranking de Facilidade dos Datasets:
+### 2.3. Ranking de Facilidade dos Datasets
 
 1. dataset_mais_facil:
 
@@ -287,7 +287,7 @@ Por fim, realizou-se uma análise dos melhores resultados obtidos para cada
 dataset, buscando-se explicar o porquê dessas performances junto do histórico
 dos modelos construídos:
 
-### 2.4. Análise dos Resultados:
+### 2.4. Análise dos Resultados
 
 - MNIST:
 
