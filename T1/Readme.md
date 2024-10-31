@@ -40,12 +40,12 @@ que utiliza o método de regressão linear.
 Os dados de entrada foram normalizados através da função max-min
 (colocando os valores de entrada no intervalo de 0 a 1).
 
-A inicialização com `b = ?`, `w = ?`, `alpha = ?` e `num_iterations = ?`
+A inicialização com `b = 0`, `w = 1`, `alpha = 0.8` e `num_iterations = 100`
 trouxe o melhor resultado que o grupo conseguiu obter.
 
 O erro quadrático médio final obtido com os parâmetros e hiperparâmetros
 iniciais que mais otimizaram a hipótese do modelo foi de
-`mse<sub>f</sub> = ?`.
+`mse<sub>f</sub> = 0.014802014491336607`.
 
 ## 2. Tensorflow/Keras
 
@@ -53,7 +53,7 @@ Neste ponto, avaliou-se a biblioteca Tensorflow/Keras para modelar redes
 neurais que geram hipóteses para os clássicos datasets que são detalhados
 abaixo:
 
-### 2.1. Informações sobre os Datasets:
+### 2.1. Informações sobre os Datasets
 
 - MNIST:
 
@@ -65,11 +65,12 @@ abaixo:
 
 - Fashion MNIST:
 
-    - Número de Classes: ?;
+    - Número de Classes: 10;
 
-    - Número de Amostras: ?;
+    - Número de Amostras: 60000 de treinamento e 10000 de teste;
 
-    - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
+
+    - Tamanho das Imagens: 28 x 28 x 1 (altura x largura x canais de cor).
 
 - CIFAR-10:
 
@@ -90,7 +91,7 @@ abaixo:
 Para cada dataset, foram testados as seguintes cinco configurações de 
 modelos com as respectivas acurácias e erro médio no final do treinamento:
 
-### 2.2. Modelos Implementados para cada Dataset:
+### 2.2. Modelos Implementados para cada Dataset
 
 - MNIST:
 
@@ -100,7 +101,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 2:
        
@@ -108,7 +109,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 3:
        
@@ -116,7 +117,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 4:
        
@@ -124,7 +125,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 5:
        
@@ -132,49 +133,80 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
 - Fashion MNIST:
 
     - Modelo 1:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 3x3;
 
-        - Erro Médio Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+
+        - Acurácia Final: 89,48%;
+
+        - Perda Final: 37,21%;
 
     - Modelo 2:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 3x3;
 
-        - Erro Médio Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com camada oculta de 256 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,18%;
+
+        - Perda Final: 50,88%.
 
     - Modelo 3:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 64 Kernels com janela de 3x3;
 
-        - Erro Médio Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,06%;
+
+        - Perda Final: 41,96%.
 
     - Modelo 4:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 3x3;
 
-        - Erro Médio Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com duas camadas ocultas de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,46%;
+
+        - Perda Final: 39,20%;
 
     - Modelo 5:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Duas camadas CNNs com 64 Kernels na primeira e 128 Kernels na segunnda, ambas com janela de 3x3;
 
-        - Erro Médio Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,42%;
+
+        - Perda Final: 36,80%;
 
 - CIFAR-10:
 
@@ -184,7 +216,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 2:
        
@@ -192,7 +224,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 3:
        
@@ -200,7 +232,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 4:
        
@@ -208,7 +240,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 5:
        
@@ -216,7 +248,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
 - CIFAR-100:
 
@@ -226,7 +258,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 2:
        
@@ -234,7 +266,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 3:
        
@@ -242,7 +274,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 4:
        
@@ -250,7 +282,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
     - Modelo 5:
        
@@ -258,14 +290,14 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Erro Médio Final: ?.
+        - Perda Final: ?.
 
 Com todos esses dados, obteve-se uma relação de ordem de dificuldade entre
 os datasets. Abaixo, em ordem de facilidade (o primeiro é mais fácil que o
 segundo e assim por diante), estão listados os datasets com as suas respectivas
 justificativas para estarem nas suas posições do ranking:
 
-### 2.3. Ranking de Facilidade dos Datasets:
+### 2.3. Ranking de Facilidade dos Datasets
 
 1. dataset_mais_facil:
 
@@ -287,7 +319,7 @@ Por fim, realizou-se uma análise dos melhores resultados obtidos para cada
 dataset, buscando-se explicar o porquê dessas performances junto do histórico
 dos modelos construídos:
 
-### 2.4. Análise dos Resultados:
+### 2.4. Análise dos Resultados
 
 - MNIST:
 
