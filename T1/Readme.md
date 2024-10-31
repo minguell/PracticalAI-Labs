@@ -147,10 +147,9 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - MLP com camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
 
-
         - Acurácia Final: 89,48%;
 
-        - Perda Final: 37,21%;
+        - Perda Final: 0,3721;
 
     - Modelo 2:
        
@@ -164,7 +163,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: 89,18%;
 
-        - Perda Final: 50,88%.
+        - Perda Final: 0,5088;
 
     - Modelo 3:
        
@@ -178,7 +177,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: 89,06%;
 
-        - Perda Final: 41,96%.
+        - Perda Final: 0,4196;
 
     - Modelo 4:
        
@@ -192,13 +191,13 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: 89,46%;
 
-        - Perda Final: 39,20%;
+        - Perda Final: 0,3920;
 
     - Modelo 5:
        
         - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Duas camadas CNNs com 64 Kernels na primeira e 128 Kernels na segunnda, ambas com janela de 3x3;
+        - Duas camadas CNNs com 64 Kernels na primeira e 128 Kernels na segunda, ambas com janela de 3x3;
 
         - Uso de MaxPooling 2x2 e Flatten;
 
@@ -206,7 +205,26 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: 89,42%;
 
-        - Perda Final: 36,80%;
+        - Perda Final: 0,3680;
+
+    - Modelo 6 (Extra):
+       
+        - Uso da função de ativação ReLU, salvo a última camada;
+
+        - Duas camadas CNNs com 48 Kernels na primeira e 64 Kernels na segunda, ambas com janela de 3x3;
+
+        - Uso de um MaxPooling 2x2 e outro MaxPooling 3x3, além do Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Uso de Dropout, técnica que consiste em desativar neurônios aleatoriamente para reduzir o           overtfitting, uma vez que força o modelo a ser mais robusto. Foram usados Dropout de 20% e de 40%.
+
+        - Uso do hiperparametro LearningRate, que determina o tamanho dos passos e a velocidade de aprendizado, impedindo que o modelo "pule" certas etapas do aprendizado 
+
+        - Acurácia Final: 86,29%;
+
+        - Perda Final: 0,3652;
+
 
 - CIFAR-10:
 
