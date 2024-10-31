@@ -110,11 +110,17 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
     - Modelo 2:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 4x4;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 3x3 e Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 98,21%;
+
+        - Perda Final: 0,1156;
 
     - Modelo 3:
        
