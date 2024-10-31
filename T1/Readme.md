@@ -256,8 +256,8 @@ justificativas para estarem nas suas posições do ranking:
 1. MNIST:
 
 Esse dataset apresenta apenas 10 classes de imagens em tons de cinza. Todas as instâncias com boa
-correlação espacial entre seus atributos. Dessa forma, adquiriu-se a maior acurácia com o modelo mais
-simples dentre todos os datasets.
+correlação espacial entre seus atributos, apresentando formas simples para os kernels das CNNs detectarem.
+Dessa forma, adquiriu-se a maior acurácia com o modelo mais simples dentre todos os datasets.
 
 2. Fashion MNIST:
 
@@ -288,16 +288,31 @@ dos modelos construídos:
 
 - MNIST:
 
-Análise...
+Como o dataset mais simples, foi possível adquirir a melhor acurácia para este dataset do que para
+qualquer outro. Ao manter um pequeno grau de complexidade do modelo, com CNN e MaxPooling que reduzem
+bastante a quantidade de atributos para a única camada oculta de MLP, obteve-se um ótimo resultado (acurácia de 98%).
+Ao torná-lo mais complexo, com mais camadas de CNN e MLP, observou-se um comportamento de overfitting.
 
 - Fashion MNIST:
 
-Análise...
+Este foi o dataset no qual o grupo mais se debruçou e adquiriu bons resultados. Não foram os melhores resultados,
+visto que, com o sexto modelo, obteve-se 91% de acurácia. Porém, utilizou-se técnicas não vistas em aula para
+aprimorar a topologia da rede neural. Além de algumas camadas de CNN e uma oculta de MLP, utilizou-se Dropout, técnica
+que desativa alguns neurônios temporariamente para evitar overfitting, ajustou-se de forma mais fina a taxa de aprendizado
+e ainda o método de BatchNormalization para reduzir o desvio padrão dos dados ao serem propagados. Mesmo assim, sendo mais
+simples, o modelo para o MNIST adquiriu melhores resultados.
 
 - CIFAR-10:
 
-Análise...
+A partir deste dataset, o grupo não atingiu mais resultados de acurácia satisfatórios. Aqui, obteve-se apenas 67% de acurácia
+com um modelo com diversas camadas de CNN e MLP, utilizando 64 kernels por camada de CNN. Obteve-se um bom equilíbrio de
+tamanho de janela que não simplificou demais os atributos a serem passados para MLP, no entanto, por serem imagens coloridas,
+provavelmente precisar-se-ia de outras abordagens para aprimorar os resultados.
 
 - CIFAR-100:
 
-Análise...
+Como o mais difícil dos datasets, o grupo adquiriu um resultado bem insatisfatório de apenas 26% de acurácia. É compreensível
+que se tenha obtido um resultado ainda pior para classificar bem mais classes quando comparado aos datasets anteriores. Como
+discutido acima, no CIFAR-10, precisar-se-ia de alguma técnica além de MLP e CNN para introduzir melhores resultados em dados
+de imagens com canais de cores, visto que o aumento das camadas desses dois tipos de redes não agregou significativamente para
+o aumento da acurácia. Em alguns casos, até apresentou piora.
