@@ -234,6 +234,8 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
         - Uso do hiperparametro LearningRate, que determina o tamanho dos passos e a velocidade de aprendizado,
         impedindo que o modelo "pule" certas etapas do aprendizado;
 
+        - Uso da função BatchNormalization, que é responsável por normalizar os valores de ativação dos neurônios. Sendo assim, neurônios que ficariam subaproveitados com valores muito baixo como -20, passam a ser mais considerados com a mudança de valor que aproxima a média de 0 e deixa a variância mais controlada.
+
         - Acurácia Final: 90,91%;
 
         - Perda Final: 0,2460;
