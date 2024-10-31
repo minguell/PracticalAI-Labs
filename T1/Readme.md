@@ -216,21 +216,21 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
        
         - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Duas camadas CNNs com 48 Kernels na primeira e 64 Kernels na segunda, ambas com janela de 3x3;
+        - Duas camadas CNNs com 32 Kernels na primeira e 64 Kernels na segunda, ambas com janela de 3x3;
 
         - Uso de um MaxPooling 2x2 e outro MaxPooling 3x3, além do Flatten;
 
         - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
 
         - Uso de Dropout, técnica que consiste em desativar neurônios aleatoriamente para reduzir o overtfitting,
-        uma vez que força o modelo a ser mais robusto. Foram usados Dropout de 20% e de 40%;
+        uma vez que força o modelo a ser mais robusto. Foram usados Dropout de 25%;
 
         - Uso do hiperparametro LearningRate, que determina o tamanho dos passos e a velocidade de aprendizado,
         impedindo que o modelo "pule" certas etapas do aprendizado;
 
-        - Acurácia Final: 86,29%;
+        - Acurácia Final: 90,91%;
 
-        - Perda Final: 0,3652;
+        - Perda Final: 0,2460;
 
 
 - CIFAR-10:
