@@ -65,11 +65,11 @@ abaixo:
 
 - Fashion MNIST:
 
-    - Número de Classes: ?;
+    - Número de Classes: 10;
 
-    - Número de Amostras: ?;
+    - Número de Amostras: 1875;
 
-    - Tamanho das Imagens: ? x ? x ? (altura x largura x canais de cor).
+    - Tamanho das Imagens: 28 x 28 x 1 (altura x largura x canais de cor).
 
 - CIFAR-10:
 
@@ -138,11 +138,18 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
     - Modelo 1:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 3x3;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com camada oculta de 64 neurônios e camada final  de 10 neurônios com Softmax;
+
+
+        - Acurácia Final: 89,48%;
+
+        - Perda Final: 37,21%;
 
     - Modelo 2:
        
