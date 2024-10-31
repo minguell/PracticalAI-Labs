@@ -317,35 +317,59 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
     - Modelo 1:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 44 Kernels com janela de 4x4;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 3x3 e Flatten;
+
+        - MLP com uma camada oculta de 100 neurônios e camada final de 100 neurônios com Softmax;
+
+        - Acurácia Final: 4,11%;
+
+        - Perda Final: 4,2543;
 
     - Modelo 2:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Duas camadas CNN com 64 Kernels com janela de 4x4;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 3x3 e Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 100 neurônios com Softmax;
+
+        - Acurácia Final: 23,47%;
+
+        - Perda Final: 3,6552;
 
     - Modelo 3:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Três camadas CNN com 64 Kernels com janela de 3x3;
 
-        - Perda Final: ?.
+        - Uso de três MaxPooling 2x2 (alternadas entre as de CNN) e Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 100 neurônios com Softmax;
+
+        - Acurácia Final: 25,96%;
+
+        - Perda Final: 3,0327;
 
     - Modelo 4:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Três camadas CNN com 64 Kernels com janela de 3x3;
 
-        - Perda Final: ?.
+        - Uso de três MaxPooling 2x2 (alternadas entre as de CNN) e Flatten;
+
+        - MLP com duas camadas ocultas de 64 neurônios e camada final de 100 neurônios com Softmax;
+
+        - Acurácia Final: 26,11%;
+
+        - Perda Final: 3,0167;
 
     - Modelo 5:
        
@@ -353,7 +377,7 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
         - Acurácia Final: ?;
 
-        - Perda Final: ?.
+        - Perda Final: ?;
 
 Com todos esses dados, obteve-se uma relação de ordem de dificuldade entre
 os datasets. Abaixo, em ordem de facilidade (o primeiro é mais fácil que o
