@@ -45,7 +45,7 @@ trouxe o melhor resultado que o grupo conseguiu obter.
 
 O erro quadrático médio final obtido com os parâmetros e hiperparâmetros
 iniciais que mais otimizaram a hipótese do modelo foi de
-`$ mse_f $ = 0.014802014491336607`.
+`mse = 0.014802014491336607`.
 
 ## 2. Tensorflow/Keras
 
