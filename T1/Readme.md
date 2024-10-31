@@ -110,35 +110,63 @@ modelos com as respectivas acurácias e erro médio no final do treinamento:
 
     - Modelo 2:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 4x4;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 3x3 e Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 98,21%;
+
+        - Perda Final: 0,1156;
 
     - Modelo 3:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 4x4;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 3x3 e Flatten;
+
+        - MLP com duas camadas ocultas de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,02%;
+
+        - Perda Final: 0,3319;
 
     - Modelo 4:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 64 Kernels com janela de 4x4;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 3x3 e Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,07%;
+
+        - Perda Final: 0,3602;
 
     - Modelo 5:
        
-        - ...
+        - Uso da função de ativação ReLU, salvo a última camada;
 
-        - Acurácia Final: ?;
+        - Camada CNN com 32 Kernels com janela de 4x4;
 
-        - Perda Final: ?.
+        - Uso de MaxPooling 3x3;
+
+        - Camada CNN com 32 Kernels com janela de 3x3;
+
+        - Uso de MaxPooling 2x2 e Flatten;
+
+        - MLP com uma camada oculta de 64 neurônios e camada final de 10 neurônios com Softmax;
+
+        - Acurácia Final: 89,09%;
+
+        - Perda Final: 0,3373;
 
 - Fashion MNIST:
 
