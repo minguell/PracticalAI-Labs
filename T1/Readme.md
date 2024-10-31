@@ -253,21 +253,32 @@ justificativas para estarem nas suas posições do ranking:
 
 ### 2.3. Ranking de Facilidade dos Datasets
 
-1. dataset_mais_facil:
+1. MNIST:
 
-Justificativa...
+Esse dataset apresenta apenas 10 classes de imagens em tons de cinza. Todas as instâncias com boa
+correlação espacial entre seus atributos. Dessa forma, adquiriu-se a maior acurácia com o modelo mais
+simples dentre todos os datasets.
 
-2. segundo_dataset_mais_facil:
+2. Fashion MNIST:
 
-Justificativa...
+Ainda com apenas 10 classes de imagens em tons de cinza, este dataset é um pouco mais desafiador que o
+MNIST por apresentar a necessidade de filtros mais elaborados para reconhecer as roupas das imagens.
+Isso provavelmente se deve ao fato de haver formas mais complexas para identificar cada tipo de
+vestimenta.
 
-3. segundo_dataset_mais_dificil:
+3. CIFAR-10:
 
-Justificativa...
+Agora com 10 classes e imagens coloridas (3 canais, RGB), o problema ficou bem mais desafiador. Os
+modelos criados não apresentaram desempenho satisfatório em generalização desse tipo de dado. Há
+correlação espacial, porém as formas são muito complexas e se propagam em diversas cores, exigindo
+alguma técnica além das CNNs e MLPs para relacionar melhor os pixels coloridos.
 
-4. dataset_mais_dificil:
+4. CIFAR-100:
 
-Justificativa...
+É semelhante ao caso do CIFAR-10, porém pelo menos 10 vezes mais difícil por apresentar 10 vezes
+mais classes. Além disso, as imagens desse dataset são mais diversas e constituem um caso bem mais
+próximo daqueles em que LLMs de empresas generalizam. O desempenho adquirido pelo grupo para este
+dataset foi bem insatisfatório com apenas as técnicas vistas em aula.
 
 Por fim, realizou-se uma análise dos melhores resultados obtidos para cada
 dataset, buscando-se explicar o porquê dessas performances junto do histórico
