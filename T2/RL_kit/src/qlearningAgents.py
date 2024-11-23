@@ -19,25 +19,6 @@ from featureExtractors import *
 import random,util,math
 
 class QLearningAgent(ReinforcementAgent):
-    """
-      Q-Learning Agent
-
-      Functions you should fill in:
-        - computeValueFromQValues
-        - computeActionFromQValues
-        - getQValue
-        - getAction
-        - update
-
-      Instance variables you have access to
-        - self.epsilon (exploration prob)
-        - self.alpha (learning rate)
-        - self.discount (discount rate)
-
-      Functions you should use
-        - self.getLegalActions(state)
-          which returns legal actions for a state
-    """
     def __init__(self, **args):
         ReinforcementAgent.__init__(self, **args)
 
@@ -90,16 +71,9 @@ class QLearningAgent(ReinforcementAgent):
         return action
 
     def update(self, state, action, nextState, reward):
-        """
-          The parent class calls this to observe a
-          state = action => nextState and reward transition.
-          You should do your Q-Value update here
-
-          NOTE: You should never call this function,
-          it will be called on your behalf
-        """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        pastReward = (1 - self.alpha) * self.getQValue(state, action)
+        currentReward = self.alpha * (reward + self.discount * self.computeValueFromQValues(nextState))
+        self.QValues[state][action] = pastReward + currentReward
 
     def getPolicy(self, state):
         return self.computeActionFromQValues(state)
