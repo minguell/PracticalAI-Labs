@@ -44,15 +44,12 @@ class QLearningAgent(ReinforcementAgent):
         # Initialize QValues variable
         self.QValues = {}
 
-    def setQValue(self, state, action, value):
-        self.QValues[state][action] = value
-
     def getQValue(self, state, action):
       # Check if it's necessary to append a new state to the QValues
       if state not in self.QValues:
           self.QValues[state] = {}
           for action in self.getLegalActions(state):
-              self.setQValue(state, action, 0.0)
+              self.QValues[state][action] = 0.0
       return self.QValues[state][action]
 
     def computeValueFromQValues(self, state):
