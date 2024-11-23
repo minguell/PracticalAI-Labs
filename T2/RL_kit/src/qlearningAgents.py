@@ -39,19 +39,21 @@ class QLearningAgent(ReinforcementAgent):
           which returns legal actions for a state
     """
     def __init__(self, **args):
-        "You can initialize Q-values here..."
         ReinforcementAgent.__init__(self, **args)
 
-        "*** YOUR CODE HERE ***"
+        # Initialize QValues variable
+        self.QValues = {}
+
+    def setQValue(self, state, action, value):
+        self.QValues[state][action] = value
 
     def getQValue(self, state, action):
-        """
-          Returns Q(state,action)
-          Should return 0.0 if we have never seen a state
-          or the Q node value otherwise
-        """
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+      # Check if it's necessary to append a new state to the QValues
+      if state not in self.QValues:
+          self.QValues[state] = {}
+          for action in self.getLegalActions(state):
+              self.setQValue(state, action, 0.0)
+      return self.QValues[state][action]
 
     def computeValueFromQValues(self, state):
         """
