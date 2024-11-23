@@ -39,55 +39,55 @@ class QLearningAgent(ReinforcementAgent):
           which returns legal actions for a state
     """
     def __init__(self, **args):
-      ReinforcementAgent.__init__(self, **args)
+        ReinforcementAgent.__init__(self, **args)
 
-      # Initialize QValues table
-      self.QValues = {}
+        # Initialize QValues table
+        self.QValues = {}
 
     def getQValue(self, state, action):
-      # Check if it's necessary to append a new state to the QValues
-      if state not in self.QValues:
-          self.QValues[state] = {}
-          for action in self.getLegalActions(state):
-              self.QValues[state][action] = 0.0
-      return self.QValues[state][action]
+        # Check if it's necessary to append a new state to the QValues
+        if state not in self.QValues:
+            self.QValues[state] = {}
+            for action in self.getLegalActions(state):
+                self.QValues[state][action] = 0.0
+        return self.QValues[state][action]
 
     def computeValueFromQValues(self, state):
-      # Returns 0.0 if there is no legal action
-      maxValue = 0.0
-      stateActions = self.getLegalActions(state)
-      if len(stateActions) != 0:
-        # Otherwise, returns the biggest QValue of the state
-        stateQValues = []
-        for action in stateActions:
-            stateQValues.append(self.getQValue(state, action))
-        maxValue = max(stateQValues)
-      return maxValue
+        # Returns 0.0 if there is no legal action
+        maxValue = 0.0
+        stateActions = self.getLegalActions(state)
+        if len(stateActions) != 0:
+          # Otherwise, returns the biggest QValue of the state
+          stateQValues = []
+          for action in stateActions:
+              stateQValues.append(self.getQValue(state, action))
+          maxValue = max(stateQValues)
+        return maxValue
 
     def computeActionFromQValues(self, state):
-      # Returns None if there is no legal action
-      bestAction = None
-      stateActions = self.getLegalActions(state)
-      if len(stateActions) != 0:
-        # Otherwise, returns the action that maximizes the QValue of the state
-        maxQValue = self.computeValueFromQValues(state)
-        bestActions = [action for action in stateActions if self.getQValue(state, action) == maxQValue]
-        # Randomizes selection if there is more than one best action
-        bestAction = random.choice(bestActions)
-      return bestAction
+        # Returns None if there is no legal action
+        bestAction = None
+        stateActions = self.getLegalActions(state)
+        if len(stateActions) != 0:
+          # Otherwise, returns the action that maximizes the QValue of the state
+          maxQValue = self.computeValueFromQValues(state)
+          bestActions = [action for action in stateActions if self.getQValue(state, action) == maxQValue]
+          # Randomizes selection if there is more than one best action
+          bestAction = random.choice(bestActions)
+        return bestAction
 
     def getAction(self, state):
-      # Returns None if there is no legal action
-      stateActions = self.getLegalActions(state)
-      action = None
-      if len(stateActions) != 0:
-        # With probability epsilon, we should take a random action
-        if util.flipCoin(self.epsilon):
-            action = random.choice(stateActions)
-        # Otherwise, we should take the best policy action
-        else:
-            action = self.computeActionFromQValues(state)
-      return action
+        # Returns None if there is no legal action
+        stateActions = self.getLegalActions(state)
+        action = None
+        if len(stateActions) != 0:
+          # With probability epsilon, we should take a random action
+          if util.flipCoin(self.epsilon):
+              action = random.choice(stateActions)
+          # Otherwise, we should take the best policy action
+          else:
+              action = self.computeActionFromQValues(state)
+        return action
 
     def update(self, state, action, nextState, reward):
         """
