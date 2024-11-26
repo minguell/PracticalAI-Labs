@@ -23,24 +23,28 @@ class ValueIterationAgent(ValueEstimationAgent):
         (see mdp.py) on initialization and runs value iteration
         for a given number of iterations using the supplied
         discount factor.
-    """
+    """        
+        
     def __init__(self, mdp, discount=0.9, iterations=100):
-        """
-          Your value iteration agent should take an mdp on
-          construction, run the indicated number of iterations
-          and then act according to the resulting policy.
-
-          Some useful mdp methods you will use:
-              mdp.getStates()
-              mdp.getPossibleActions(state)
-              mdp.getTransitionStatesAndProbs(state, action)
-              mdp.getReward(state, action, nextState)
-              mdp.isTerminal(state)
-        """
         self.mdp = mdp
         self.discount = discount
         self.iterations = iterations
-        self.values = util.Counter()  # A Counter is a dict with default 0
+        self.values = util.Counter()  
+
+        for _ in range(iterations):
+            new_values = util.Counter()
+            for state in mdp.getStates():
+                if mdp.isTerminal(state):
+                    new_values[state] = 0
+                else:
+                    actions = mdp.getPossibleActions(state)
+                    new_values[state] = max(self.computeQValueFromValues(state, action) for action in actions)
+            self.values = new_values
+        
+        self.mdp = mdp
+        self.discount = discount
+        self.iterations = iterations
+        self.values = util.Counter()  
 
         # Write value iteration code here
         "*** YOUR CODE HERE ***"
