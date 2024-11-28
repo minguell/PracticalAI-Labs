@@ -24,7 +24,30 @@ def sucessor(estado:str)->Set[Tuple[str,str]]:
     :param estado:
     :return:
     """
-    # substituir a linha abaixo pelo seu codigo
+        # Descobre espaço vazio ("_")
+    pos_vazio = estado.index("_")
+    acoes = []
+    linha, coluna = divmod(pos_vazio, 3)  # Converte pra linha e coluna
+    
+    # Movimentos possíveis
+    movimentos = {
+        "acima": (linha - 1, coluna),
+        "abaixo": (linha + 1, coluna),
+        "esquerda": (linha, coluna - 1),
+        "direita": (linha, coluna + 1)
+    }
+    
+    for acao, (nova_linha, nova_coluna) in movimentos.items():
+        # Garante que o movimento é válido 
+        if 0 <= nova_linha < 3 and 0 <= nova_coluna < 3:
+            # Calcula novo vazio
+            nova_pos = nova_linha * 3 + nova_coluna
+            # Troca o "_" pela nova posição
+            estado_lista = list(estado)
+            estado_lista[pos_vazio], estado_lista[nova_pos] = estado_lista[nova_pos], "_"
+            novo_estado = "".join(estado_lista)
+            acoes.append((acao, novo_estado))
+            
     raise NotImplementedError
 
 
