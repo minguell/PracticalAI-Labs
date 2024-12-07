@@ -27,6 +27,7 @@ class Nodo:
         return self.custo
 
     def __eq__(self, other):
+        # Utilizada para comparar nodos
         if self.get_estado() == other.get_estado() and \
            self.get_acao() == other.get_acao() and \
            self.get_custo() == other.get_custo():
@@ -35,7 +36,12 @@ class Nodo:
             return False
 
     def __hash__(self):
+        # Utilizada para mapear nodos em um conjunto
         return hash((self.estado, self.acao, self.custo))
+    
+    def __str__(self):
+        # Utilizada para imprimir nodos em uma string (debug)
+        return f"Estado: {self.get_estado()}, Estado Pai: {self.get_pai().get_estado()}, Acao: {self.get_acao()}, Custo: {self.get_custo()}"
 
 def sucessor(estado:str)->Set[Tuple[str,str]]:
     """
@@ -82,7 +88,13 @@ def expande(nodo:Nodo)->Set[Nodo]:
     :param nodo:Nodo, objeto da classe Nodo (estado inicial)
     :return:Set[Nodo], conjunto com os nodos sucessores do nodo recebido
     """
-    
+    # Inicializa o conjunto de sucessores como vazio para evitar erros
+    sucessores = set()
+    if nodo is not None and nodo.get_estado() is not None and nodo.get_estado() != "":
+        # Converte todas as tuplas de ação, estado atingíveis pelo nodo raiz em nodos sucessores 
+        for acao, estado in sucessor(nodo.get_estado()):
+            sucessores.add(Nodo(estado, nodo, acao, nodo.get_custo() + 1))
+    return sucessores
 
 def astar_hamming(estado:str)->list[str]:
     """
@@ -146,3 +158,6 @@ def astar_new_heuristic(estado:str)->list[str]:
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
+
+if __name__ == "__main__":
+    pass
