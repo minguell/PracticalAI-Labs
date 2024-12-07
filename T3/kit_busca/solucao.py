@@ -75,12 +75,12 @@ def sucessor(estado:str)->Set[Tuple[str,str]]:
 
     return set(acoes)
 
-def expande(nodo:Nodo)->dict[str:Nodo]:
+def expande(nodo:Nodo)->Set[Nodo]:
     """
     Recebe um nodo (objeto da classe Nodo) e retorna um conjunto de nodos.
     Cada nodo do conjunto é contém um estado sucessor do nó recebido.
     :param nodo:Nodo, objeto da classe Nodo (estado inicial)
-    :return:dict[str:Nodo], dicionario (ação: Nodo) com os nodos sucessores do nodo recebido
+    :return:Set[Nodo], conjunto com os nodos sucessores do nodo recebido
     """
     
 
@@ -146,6 +146,3 @@ def astar_new_heuristic(estado:str)->list[str]:
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
-
-if __name__ == "__main__":
-    pass
