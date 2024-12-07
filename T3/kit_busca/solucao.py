@@ -90,7 +90,7 @@ def expande(nodo:Nodo)->Set[Nodo]:
     """
     # Inicializa o conjunto de sucessores como vazio para evitar erros
     sucessores = set()
-    if nodo is not None and nodo.get_estado() is not None and nodo.get_estado() != "":
+    if nodo is not None:
         # Converte todas as tuplas de ação, estado atingíveis pelo nodo raiz em nodos sucessores 
         for acao, estado in sucessor(nodo.get_estado()):
             sucessores.add(Nodo(estado, nodo, acao, nodo.get_custo() + 1))
