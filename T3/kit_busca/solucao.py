@@ -102,8 +102,8 @@ def astar_hamming(estado:str)->list[str]:
     retorna uma lista de ações que leva do
     estado recebido até o objetivo ("12345678_").
     Caso não haja solução a partir do estado recebido, retorna None
-    :param estado: str
-    :return:
+    :param estado:str, estado inicial do problema
+    :return: list[str], lista de ações que levam até o objetivo
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
@@ -114,8 +114,8 @@ def astar_manhattan(estado:str)->list[str]:
     retorna uma lista de ações que leva do
     estado recebido até o objetivo ("12345678_").
     Caso não haja solução a partir do estado recebido, retorna None
-    :param estado: str
-    :return:
+    :param estado:str, estado inicial do problema
+    :return: list[str], lista de ações que levam até o objetivo
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
@@ -127,8 +127,8 @@ def bfs(estado:str)->list[str]:
     retorna uma lista de ações que leva do
     estado recebido até o objetivo ("12345678_").
     Caso não haja solução a partir do estado recebido, retorna None
-    :param estado: str
-    :return:
+    :param estado:str, estado inicial do problema
+    :return: list[str], lista de ações que levam até o objetivo
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
@@ -140,8 +140,8 @@ def dfs(estado:str)->list[str]:
     retorna uma lista de ações que leva do
     estado recebido até o objetivo ("12345678_").
     Caso não haja solução a partir do estado recebido, retorna None
-    :param estado: str
-    :return:
+    :param estado:str, estado inicial do problema
+    :return: list[str], lista de ações que levam até o objetivo
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
@@ -153,8 +153,8 @@ def astar_new_heuristic(estado:str)->list[str]:
     retorna uma lista de ações que leva do
     estado recebido até o objetivo ("12345678_").
     Caso não haja solução a partir do estado recebido, retorna None
-    :param estado: str
-    :return:
+    :param estado:str, estado inicial do problema
+    :return: list[str], lista de ações que levam até o objetivo
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
