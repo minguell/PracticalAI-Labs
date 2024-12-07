@@ -1,4 +1,5 @@
 from typing import Iterable, Set, Tuple
+from queue import Queue
 
 class Nodo:
     def __init__(self, estado:str, pai, acao:str, custo:int):
@@ -29,15 +30,14 @@ class Nodo:
     def __eq__(self, other):
         # Utilizada para comparar nodos
         if self.get_estado() == other.get_estado() and \
-           self.get_acao() == other.get_acao() and \
-           self.get_custo() == other.get_custo():
+           self.get_acao() == other.get_acao():
             return True
         else:
             return False
 
     def __hash__(self):
         # Utilizada para mapear nodos em um conjunto
-        return hash((self.estado, self.acao, self.custo))
+        return hash((self.estado, self.acao))
     
     def __str__(self):
         # Utilizada para imprimir nodos em uma string (debug)
@@ -120,7 +120,6 @@ def astar_manhattan(estado:str)->list[str]:
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
 
-#opcional,extra
 def bfs(estado:str)->list[str]:
     """
     Recebe um estado (string), executa a busca em LARGURA e
@@ -130,7 +129,6 @@ def bfs(estado:str)->list[str]:
     :param estado:str, estado inicial do problema
     :return: list[str], lista de ações que levam até o objetivo
     """
-    # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
 
 #opcional,extra
