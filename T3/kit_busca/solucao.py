@@ -27,7 +27,9 @@ class Nodo:
         return self.custo
 
     def __eq__(self, other):
-        if self.get_estado() == other.get_estado() and self.get_acao() == other.get_acao() and self.get_custo() == other.get_custo():
+        if self.get_estado() == other.get_estado() and \
+           self.get_acao() == other.get_acao() and \
+           self.get_custo() == other.get_custo():
             return True
         else:
             return False
