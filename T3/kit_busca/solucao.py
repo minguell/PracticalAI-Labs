@@ -4,7 +4,7 @@ class Nodo:
     """
     Implemente a classe Nodo com os atributos descritos na funcao init
     """
-    def __init__(self, estado:str, pai:Nodo, acao:str, custo:int):
+    def __init__(self, estado:str, pai, acao:str, custo:int):
         """
         Inicializa o nodo com os atributos recebidos
         :param estado:str, representacao do estado do 8-puzzle
@@ -15,20 +15,18 @@ class Nodo:
         # substitua a linha abaixo pelo seu codigo
         raise NotImplementedError
 
-
 def sucessor(estado:str)->Set[Tuple[str,str]]:
     """
     Recebe um estado (string) e retorna um conjunto de tuplas (ação,estado atingido)
     para cada ação possível no estado recebido.
     Tanto a ação quanto o estado atingido são strings também.
-    :param estado:
-    :return:
     """
-        # Descobre espaço vazio ("_")
+    # Descobre espaço vazio ("_")
     pos_vazio = estado.index("_")
     acoes = []
-    linha, coluna = divmod(pos_vazio, 3)  # Converte pra linha e coluna
-    
+    # Converte pra linha e coluna
+    linha, coluna = divmod(pos_vazio, 3)
+
     # Movimentos possíveis
     movimentos = {
         "acima": (linha - 1, coluna),
@@ -36,7 +34,7 @@ def sucessor(estado:str)->Set[Tuple[str,str]]:
         "esquerda": (linha, coluna - 1),
         "direita": (linha, coluna + 1)
     }
-    
+
     for acao, (nova_linha, nova_coluna) in movimentos.items():
         # Garante que o movimento é válido 
         if 0 <= nova_linha < 3 and 0 <= nova_coluna < 3:
@@ -47,9 +45,8 @@ def sucessor(estado:str)->Set[Tuple[str,str]]:
             estado_lista[pos_vazio], estado_lista[nova_pos] = estado_lista[nova_pos], "_"
             novo_estado = "".join(estado_lista)
             acoes.append((acao, novo_estado))
-            
-    raise NotImplementedError
 
+    return set(acoes)
 
 def expande(nodo:Nodo)->Set[Nodo]:
     """
