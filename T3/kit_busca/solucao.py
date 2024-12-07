@@ -1,9 +1,6 @@
 from typing import Iterable, Set, Tuple
 
 class Nodo:
-    """
-    Implemente a classe Nodo com os atributos descritos na funcao init
-    """
     def __init__(self, estado:str, pai, acao:str, custo:int):
         """
         Inicializa o nodo com os atributos recebidos
@@ -12,8 +9,19 @@ class Nodo:
         :param acao:str, acao a partir do pai que leva a este nodo (None no caso do nó raiz)
         :param custo:int, custo do caminho da raiz até este nó
         """
-        # substitua a linha abaixo pelo seu codigo
-        raise NotImplementedError
+        self.estado = estado
+        self.pai = pai
+        self.acao = acao
+        self.custo = custo
+    
+    def __eq__(self, other):
+        if self.estado == other.estado and self.pai == other.pai and self.acao == other.acao and self.custo == other.custo:
+            return True
+        else:
+            return False
+
+    def __hash__(self):
+        return hash((self.estado, self.pai, self.acao, self.custo))
 
 def sucessor(estado:str)->Set[Tuple[str,str]]:
     """
