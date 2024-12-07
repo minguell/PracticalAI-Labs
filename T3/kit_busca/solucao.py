@@ -20,6 +20,8 @@ def sucessor(estado:str)->Set[Tuple[str,str]]:
     Recebe um estado (string) e retorna um conjunto de tuplas (ação,estado atingido)
     para cada ação possível no estado recebido.
     Tanto a ação quanto o estado atingido são strings também.
+    :param estado:str, representação do estado do 8-puzzle
+    :return:Set[Tuple[str,str]], retorna um conjunto de tuplas (acao, estado) que o estado de entrada pode acessar
     """
     # Descobre espaço vazio ("_")
     pos_vazio = estado.index("_")
