@@ -79,8 +79,8 @@ def expande(nodo:Nodo)->Set[Nodo]:
     """
     Recebe um nodo (objeto da classe Nodo) e retorna um conjunto de nodos.
     Cada nodo do conjunto é contém um estado sucessor do nó recebido.
-    :param nodo: objeto da classe Nodo
-    :return:
+    :param nodo:Nodo, objeto da classe Nodo (estado inicial)
+    :return:Set[Nodo], conjunto com os nodos sucessores do nodo recebido
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
