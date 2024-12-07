@@ -13,15 +13,27 @@ class Nodo:
         self.pai = pai
         self.acao = acao
         self.custo = custo
-    
+
+    def get_estado(self):
+        return self.estado
+
+    def get_pai(self):
+        return self.pai
+
+    def get_acao(self):
+        return self.acao    
+
+    def get_custo(self):
+        return self.custo
+
     def __eq__(self, other):
-        if self.estado == other.estado and self.pai == other.pai and self.acao == other.acao and self.custo == other.custo:
+        if self.get_estado() == other.get_estado() and self.get_acao() == other.get_acao() and self.get_custo() == other.get_custo():
             return True
         else:
             return False
 
     def __hash__(self):
-        return hash((self.estado, self.pai, self.acao, self.custo))
+        return hash((self.estado, self.acao, self.custo))
 
 def sucessor(estado:str)->Set[Tuple[str,str]]:
     """
