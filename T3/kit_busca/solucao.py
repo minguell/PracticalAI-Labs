@@ -45,6 +45,9 @@ def sucessor(estado:str)->Set[Tuple[str,str]]:
     :param estado:str, representação do estado do 8-puzzle
     :return:Set[Tuple[str,str]], retorna um conjunto de tuplas (acao, estado) que o estado de entrada pode acessar
     """
+    if estado is None or estado == "":
+        return set()
+
     # Descobre espaço vazio ("_")
     pos_vazio = estado.index("_")
     acoes = []
@@ -82,7 +85,6 @@ def expande(nodo:Nodo)->Set[Nodo]:
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
 
-
 def astar_hamming(estado:str)->list[str]:
     """
     Recebe um estado (string), executa a busca A* com h(n) = soma das distâncias de Hamming e
@@ -94,7 +96,6 @@ def astar_hamming(estado:str)->list[str]:
     """
     # substituir a linha abaixo pelo seu codigo
     raise NotImplementedError
-
 
 def astar_manhattan(estado:str)->list[str]:
     """
