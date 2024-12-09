@@ -6,7 +6,7 @@
 - Miguel Dutra Fontes Guerra (00342573);
 - Pedro Lubaszewski Lima (00341810).
 
-## Desempenhos dos Algoritmos:
+## Desempenhos dos Algoritmos (para o estado inicial “2_3541687”):
 
 - A* - heurística Hamming:
     - Número de Nós Expandidos:
