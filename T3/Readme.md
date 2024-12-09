@@ -17,9 +17,9 @@
     - Tempo de Execução:
     - Custo da Solução:
 - BFS:
-    - Número de Nós Expandidos:
-    - Tempo de Execução:
-    - Custo da Solução:
+    - Número de Nós Expandidos: 242.580;
+    - Tempo de Execução: 1,943 s;
+    - Custo da Solução: 23.
 - DFS - heurística Manhattan:
     - Número de Nós Expandidos:
     - Tempo de Execução:

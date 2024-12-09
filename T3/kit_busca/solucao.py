@@ -1,5 +1,6 @@
 from typing import Iterable, Set, Tuple
-from queue import Queue
+from queue import Queue, LifoQueue
+import time
 
 class Nodo:
     def __init__(self, estado:str, pai, acao:str, custo:int):
@@ -41,7 +42,7 @@ class Nodo:
     
     def __str__(self):
         # Utilizada para imprimir nodos em uma string (debug)
-        return f"Estado: {self.get_estado()}, Estado Pai: {self.get_pai().get_estado()}, Acao: {self.get_acao()}, Custo: {self.get_custo()}"
+        return f"Estado: {self.get_estado()}, Estado Pai: {self.get_pai().get_estado() if self.get_pai() is not None else None}, Acao: {self.get_acao()}, Custo: {self.get_custo()}"
 
 def sucessor(estado:str)->Set[Tuple[str,str]]:
     """
@@ -129,7 +130,39 @@ def bfs(estado:str)->list[str]:
     :param estado:str, estado inicial do problema
     :return: list[str], lista de ações que levam até o objetivo
     """
-    raise NotImplementedError
+    objetivo = "12345678_"
+    raiz = Nodo(estado, None, None, 0)
+    visitados = set()
+    solucao = []
+    fronteira = Queue()
+    fronteira.put(raiz)
+    nodos_expandidos = 0
+
+    while True:
+        # Neste caso, não foi encontrada uma solução (o problema é impossível)
+        if fronteira.empty():
+            print(f'BFS:\nA quantidade de nodos expandidos foi {nodos_expandidos}.')
+            print(f'Solução não encontrada.\n')
+            return None
+
+        # Para o BFS, a expansão é feita em largura (desenfileirando nodos da fronteira)
+        nodo = fronteira.get()
+        if nodo.get_estado() == objetivo:
+            print(f'\nBFS:\nA quantidade de nodos expandidos foi {nodos_expandidos}.')
+            print(f'Custo da solução: {nodo.get_custo()}\n')
+            # Descobre a ordem das ações reversamente, revertendo-as na saída
+            while nodo is not raiz:
+                solucao.append(nodo.get_acao())
+                nodo = nodo.get_pai()
+            return solucao[::-1]
+
+        # Só visita nodos não explorados
+        if nodo not in visitados:
+            visitados.add(nodo)
+            for sucessor in expande(nodo):
+                if sucessor not in visitados:
+                    fronteira.put(sucessor)
+            nodos_expandidos += 1
 
 #opcional,extra
 def dfs(estado:str)->list[str]:
@@ -158,4 +191,7 @@ def astar_new_heuristic(estado:str)->list[str]:
     raise NotImplementedError
 
 if __name__ == "__main__":
-    pass
+    start_bfs = time.time()
+    print(bfs("2_3541687"))
+    end_bfs = time.time()
+    print(f'\nTempo de execução do algoritmo BFS: {end_bfs - start_bfs} segundos')
