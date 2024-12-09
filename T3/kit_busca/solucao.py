@@ -164,7 +164,6 @@ def bfs(estado:str)->list[str]:
                     fronteira.put(sucessor)
             nodos_expandidos += 1
 
-#opcional,extra
 def dfs(estado:str)->list[str]:
     """
     Recebe um estado (string), executa a busca em PROFUNDIDADE e
@@ -174,8 +173,39 @@ def dfs(estado:str)->list[str]:
     :param estado:str, estado inicial do problema
     :return: list[str], lista de ações que levam até o objetivo
     """
-    # substituir a linha abaixo pelo seu codigo
-    raise NotImplementedError
+    objetivo = "12345678_"
+    raiz = Nodo(estado, None, None, 0)
+    visitados = set()
+    solucao = []
+    fronteira = LifoQueue()
+    fronteira.put(raiz)
+    nodos_expandidos = 0
+
+    while True:
+        # Neste caso, não foi encontrada uma solução (o problema é impossível)
+        if fronteira.empty():
+            print(f'DFS:\nA quantidade de nodos expandidos foi {nodos_expandidos}.')
+            print(f'Solução não encontrada.\n')
+            return None
+
+        # Para o BFS, a expansão é feita em profundidade (desempilhando nodos da fronteira)
+        nodo = fronteira.get()
+        if nodo.get_estado() == objetivo:
+            print(f'\nDFS:\nA quantidade de nodos expandidos foi {nodos_expandidos}.')
+            print(f'Custo da solução: {nodo.get_custo()}\n')
+            # Descobre a ordem das ações reversamente, revertendo-as na saída
+            while nodo is not raiz:
+                solucao.append(nodo.get_acao())
+                nodo = nodo.get_pai()
+            return solucao[::-1]
+
+        # Só visita nodos não explorados
+        if nodo not in visitados:
+            visitados.add(nodo)
+            for sucessor in expande(nodo):
+                if sucessor not in visitados:
+                    fronteira.put(sucessor)
+            nodos_expandidos += 1
 
 #opcional,extra
 def astar_new_heuristic(estado:str)->list[str]:
@@ -194,4 +224,9 @@ if __name__ == "__main__":
     start_bfs = time.time()
     print(bfs("2_3541687"))
     end_bfs = time.time()
-    print(f'\nTempo de execução do algoritmo BFS: {end_bfs - start_bfs} segundos')
+    print(f'\nTempo de execução do algoritmo BFS: {end_bfs - start_bfs} segundos.\n')
+
+    start_dfs = time.time()
+    dfs("2_3541687")
+    end_dfs = time.time()
+    print(f'\nTempo de execução do algoritmo DFS: {end_dfs - start_dfs} segundos.\n')

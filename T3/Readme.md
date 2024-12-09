@@ -17,10 +17,10 @@
     - Tempo de Execução:
     - Custo da Solução:
 - BFS:
-    - Número de Nós Expandidos: 242.580;
-    - Tempo de Execução: 1,943 s;
+    - Número de Nós Expandidos: 228228;
+    - Tempo de Execução: 1,852s;
     - Custo da Solução: 23.
 - DFS - heurística Manhattan:
-    - Número de Nós Expandidos:
-    - Tempo de Execução:
-    - Custo da Solução:
+    - Número de Nós Expandidos: 206172;
+    - Tempo de Execução: 1,695s;
+    - Custo da Solução: 180077.
