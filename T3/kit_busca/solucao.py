@@ -1,5 +1,5 @@
 from typing import Iterable, Set, Tuple
-from queue import Queue, LifoQueue
+from queue import Queue, LifoQueue, PriorityQueue
 import time
 
 class Nodo:
@@ -97,29 +97,85 @@ def expande(nodo:Nodo)->Set[Nodo]:
             sucessores.add(Nodo(estado, nodo, acao, nodo.get_custo() + 1))
     return sucessores
 
-def astar_hamming(estado:str)->list[str]:
+def hamming(estado: str)-> int:
     """
-    Recebe um estado (string), executa a busca A* com h(n) = soma das distâncias de Hamming e
+    Calcula a heurística de Hamming para o estado.
+    Número de peças fora do lugar em relação ao objetivo.
+    """
+    objetivo = "12345678_"
+    return sum(1 for i in range(len(estado)) if estado[i] != objetivo[i] and estado[i] != '_')
+
+def manhattan(estado: str)-> int:
+    """
+    Calcula a heurística de Manhattan para o estado.
+    Soma das distâncias de Manhattan para cada peça até sua posição objetivo.
+    """
+    objetivo = "12345678_"
+    distancia = 0
+    for i, val in enumerate(estado):
+        if val != "_":
+            pos_objetivo = objetivo.index(val)
+            linha_atual, coluna_atual = divmod(i, 3)
+            linha_objetivo, coluna_objetivo = divmod(pos_objetivo, 3)
+            distancia += abs(linha_atual - linha_objetivo) + abs(coluna_atual - coluna_objetivo)
+    return distancia
+
+def astar(estado:str,heuristica)->list[str]:
+    """
+    Recebe um estado (string), executa a busca A* e
     retorna uma lista de ações que leva do
     estado recebido até o objetivo ("12345678_").
+    Recebe heurística específica, podendo ser de Hamming ou Manhattan.
     Caso não haja solução a partir do estado recebido, retorna None
-    :param estado:str, estado inicial do problema
+    :param estado: str, estado inicial do problema
+    :param heuristica: function, função heurística indicada
     :return: list[str], lista de ações que levam até o objetivo
     """
-    # substituir a linha abaixo pelo seu codigo
-    raise NotImplementedError
+    objetivo = "12345678_"
+    raiz = Nodo(estado, None, None, 0)
+    visitados = set()
+    solucao = []
+    fronteira = PriorityQueue()
+    fronteira.put((heuristica(estado),raiz))
+    nodos_expandidos = 0
+
+    while not fronteira.empty():
+        _, nodo = fronteira.get()
+
+        if nodo.get_estado() == objetivo:
+            print(f'\nA* ({heuristica._name_})')
+            print(f'Número de nós expandidos: {nodos_expandidos}')
+            print(f'Custo da Solução: {nodo.get_custo()}\n')
+
+            while nodo is not raiz:
+                solucao.append(nodo.get_acao())
+                nodo = nodo.get_pai()
+            return solucao[::-1]
+        
+        if nodo not in visitados:
+            visitados.add(nodo)
+            for sucessor in expande(nodo):
+                if sucessor not in visitados:
+                    custo_total = sucessor.get_custo() + heuristica(sucessor.get_estado())
+                    fronteira.put((custo_total, sucessor))
+            nodos_expandidos += 1
+    
+    print(f'\nA* ({heuristica._name_}):')
+    print(f'Número de nós expandidos: {nodos_expandidos}')
+    print(f'Solução não encontrada')
+    return None
+
+def astar_hamming(estado:str)->list[str]:
+    """
+    Busca A* com heurística de Hamming.
+    """
+    return astar(estado,hamming)
 
 def astar_manhattan(estado:str)->list[str]:
     """
-    Recebe um estado (string), executa a busca A* com h(n) = soma das distâncias de Manhattan e
-    retorna uma lista de ações que leva do
-    estado recebido até o objetivo ("12345678_").
-    Caso não haja solução a partir do estado recebido, retorna None
-    :param estado:str, estado inicial do problema
-    :return: list[str], lista de ações que levam até o objetivo
+    Busca A* com heurística de Manhattan.
     """
-    # substituir a linha abaixo pelo seu codigo
-    raise NotImplementedError
+    return astar(estado,manhattan)
 
 def bfs(estado:str)->list[str]:
     """
@@ -230,3 +286,13 @@ if __name__ == "__main__":
     dfs("2_3541687")
     end_dfs = time.time()
     print(f'\nTempo de execução do algoritmo DFS: {end_dfs - start_dfs} segundos.\n')
+
+    start_hamming = time.time()
+    astar_hamming("2_3541687")
+    end_hamming = time.time()
+    print(f'\nTempo de execução do algoritmo A* com heurística de Hamming: {end_hamming - start_hamming} segundos.\n')
+
+    start_manhattan = time.time()
+    astar_manhattan("2_3541687")
+    end_manhattan = time.time()
+    print(f'\nTempo de execução do algoritmo A* com heurística de Manhattan: {end_manhattan - start_manhattan} segundos.\n')
