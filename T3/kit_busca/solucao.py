@@ -35,6 +35,14 @@ class Nodo:
             return True
         else:
             return False
+        
+    def __lt__(self, other):
+        # Utilizada para comparar nodos
+        return self.get_custo() < other.get_custo()
+
+    def __gt__(self, other):
+        # Utilizada para comparar nodos
+        return self.get_custo() > other.get_custo()
 
     def __hash__(self):
         # Utilizada para mapear nodos em um conjunto
@@ -142,7 +150,7 @@ def astar(estado:str,heuristica)->list[str]:
         _, nodo = fronteira.get()
 
         if nodo.get_estado() == objetivo:
-            print(f'\nA* ({heuristica._name_})')
+            print(f'\nA* ({heuristica.__name__})')
             print(f'Número de nós expandidos: {nodos_expandidos}')
             print(f'Custo da Solução: {nodo.get_custo()}\n')
 
@@ -159,7 +167,7 @@ def astar(estado:str,heuristica)->list[str]:
                     fronteira.put((custo_total, sucessor))
             nodos_expandidos += 1
     
-    print(f'\nA* ({heuristica._name_}):')
+    print(f'\nA* ({heuristica.__name__}):')
     print(f'Número de nós expandidos: {nodos_expandidos}')
     print(f'Solução não encontrada')
     return None
@@ -276,6 +284,16 @@ def astar_new_heuristic(estado:str)->list[str]:
     raise NotImplementedError
 
 if __name__ == "__main__":
+    start_hamming = time.time()
+    print(astar_hamming("2_3541687"))
+    end_hamming = time.time()
+    print(f'\nTempo de execução do algoritmo A* com heurística de Hamming: {end_hamming - start_hamming} segundos.\n')
+
+    start_manhattan = time.time()
+    print(astar_manhattan("2_3541687"))
+    end_manhattan = time.time()
+    print(f'\nTempo de execução do algoritmo A* com heurística de Manhattan: {end_manhattan - start_manhattan} segundos.\n')
+
     start_bfs = time.time()
     print(bfs("2_3541687"))
     end_bfs = time.time()
@@ -285,13 +303,3 @@ if __name__ == "__main__":
     dfs("2_3541687")
     end_dfs = time.time()
     print(f'\nTempo de execução do algoritmo DFS: {end_dfs - start_dfs} segundos.\n')
-
-    start_hamming = time.time()
-    astar_hamming("2_3541687")
-    end_hamming = time.time()
-    print(f'\nTempo de execução do algoritmo A* com heurística de Hamming: {end_hamming - start_hamming} segundos.\n')
-
-    start_manhattan = time.time()
-    astar_manhattan("2_3541687")
-    end_manhattan = time.time()
-    print(f'\nTempo de execução do algoritmo A* com heurística de Manhattan: {end_manhattan - start_manhattan} segundos.\n')
