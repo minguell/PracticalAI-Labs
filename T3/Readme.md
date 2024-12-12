@@ -9,18 +9,23 @@
 ## Desempenhos dos Algoritmos (para o estado inicial “2_3541687”):
 
 - A* - heurística Hamming:
-    - Número de Nós Expandidos: 23990;
-    - Tempo de Execução: 0,605s;
+    - Número de Nós Expandidos: 24876;
+    - Tempo de Execução: 0,562s;
     - Custo da Solução: 23.
 
 - A* - heurística Manhattan:
-    - Número de Nós Expandidos: 3054;
-    - Tempo de Execução: 0,087s;
+    - Número de Nós Expandidos: 3545;
+    - Tempo de Execução: 0,082s;
+    - Custo da Solução: 23.
+
+- A* - heurística Euclidiana:
+    - Número de Nós Expandidos: 5478;
+    - Tempo de Execução: 0,147s;
     - Custo da Solução: 23.
 
 - BFS:
-    - Número de Nós Expandidos: 243324;
-    - Tempo de Execução: 3,911s;
+    - Número de Nós Expandidos: 221634;
+    - Tempo de Execução: 3,402s;
     - Custo da Solução: 23.
 
 - DFS - heurística Manhattan:

@@ -1,6 +1,7 @@
 from typing import Iterable, Set, Tuple
 from queue import Queue, LifoQueue, PriorityQueue
 import time
+import math
 
 class Nodo:
     def __init__(self, estado:str, pai, acao:str, custo:int):
@@ -270,18 +271,26 @@ def dfs(estado:str)->list[str]:
                     fronteira.put(sucessor)
             nodos_expandidos += 1
 
+def euclidean(estado: str)-> int:
+    """
+    Calcula a heurística de Manhattan para o estado.
+    Soma das distâncias de Manhattan para cada peça até sua posição objetivo.
+    """
+    objetivo = "12345678_"
+    distancia = 0
+    for i, val in enumerate(estado):
+        pos_objetivo = objetivo.index(val)
+        linha_atual, coluna_atual = divmod(i, 3)
+        linha_objetivo, coluna_objetivo = divmod(pos_objetivo, 3)
+        distancia += math.sqrt((linha_atual - linha_objetivo)**2 + (coluna_atual - coluna_objetivo)**2)
+    return distancia
+
 #opcional,extra
 def astar_new_heuristic(estado:str)->list[str]:
     """
-    Recebe um estado (string), executa a busca A* com h(n) = sua nova heurística e
-    retorna uma lista de ações que leva do
-    estado recebido até o objetivo ("12345678_").
-    Caso não haja solução a partir do estado recebido, retorna None
-    :param estado:str, estado inicial do problema
-    :return: list[str], lista de ações que levam até o objetivo
+    Busca A* com heurística de Euclides.
     """
-    # substituir a linha abaixo pelo seu codigo
-    raise NotImplementedError
+    return astar(estado,euclidean)
 
 if __name__ == "__main__":
     start_hamming = time.time()
@@ -293,6 +302,11 @@ if __name__ == "__main__":
     print(astar_manhattan("2_3541687"))
     end_manhattan = time.time()
     print(f'\nTempo de execução do algoritmo A* com heurística de Manhattan: {end_manhattan - start_manhattan} segundos.\n')
+
+    start_euclidean = time.time()
+    print(astar_new_heuristic("2_3541687"))
+    end_euclidean = time.time()
+    print(f'\nTempo de execução do algoritmo A* com heurística Euclidiana: {end_euclidean - start_euclidean} segundos.\n')
 
     start_bfs = time.time()
     print(bfs("2_3541687"))
