@@ -103,7 +103,7 @@ def hamming(estado: str)-> int:
     Número de peças fora do lugar em relação ao objetivo.
     """
     objetivo = "12345678_"
-    return sum(1 for i in range(len(estado)) if estado[i] != objetivo[i] and estado[i] != '_')
+    return sum(1 for i in range(len(estado)) if estado[i] != objetivo[i])
 
 def manhattan(estado: str)-> int:
     """
@@ -113,11 +113,10 @@ def manhattan(estado: str)-> int:
     objetivo = "12345678_"
     distancia = 0
     for i, val in enumerate(estado):
-        if val != "_":
-            pos_objetivo = objetivo.index(val)
-            linha_atual, coluna_atual = divmod(i, 3)
-            linha_objetivo, coluna_objetivo = divmod(pos_objetivo, 3)
-            distancia += abs(linha_atual - linha_objetivo) + abs(coluna_atual - coluna_objetivo)
+        pos_objetivo = objetivo.index(val)
+        linha_atual, coluna_atual = divmod(i, 3)
+        linha_objetivo, coluna_objetivo = divmod(pos_objetivo, 3)
+        distancia += abs(linha_atual - linha_objetivo) + abs(coluna_atual - coluna_objetivo)
     return distancia
 
 def astar(estado:str,heuristica)->list[str]:
