@@ -285,7 +285,6 @@ def euclidean(estado: str)-> int:
         distancia += math.sqrt((linha_atual - linha_objetivo)**2 + (coluna_atual - coluna_objetivo)**2)
     return distancia
 
-#opcional,extra
 def astar_new_heuristic(estado:str)->list[str]:
     """
     Busca A* com heurística de Euclides.
