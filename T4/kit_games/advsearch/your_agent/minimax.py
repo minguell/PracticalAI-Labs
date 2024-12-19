@@ -1,8 +1,12 @@
 import random
 from typing import Tuple, Callable
 
-def prune_test(state, max_depth:int) -> bool:
-    raise NotImplementedError()
+def prune_test(state, current_depth:int, max_depth:int) -> bool:
+    if max_depth != -1:
+        if current_depth >= max_depth or state.is_terminal():
+            return True
+    else:
+        return state.is_terminal()
 
 def min(state, alpha, beta, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
     raise NotImplementedError()
