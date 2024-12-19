@@ -17,7 +17,7 @@ def make_move(state) -> Tuple[int, int]:
     :param state: state to make the move
     :return: (int, int) tuple with x, y coordinates of the move (remember: 0 is the first row/column)
     """
-    max_depth = 5
+    max_depth = 7
     return minimax_move(state, max_depth, evaluate_count)
 
 def evaluate_count(state, player:str) -> float:
