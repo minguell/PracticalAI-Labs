@@ -17,7 +17,7 @@ def make_move(state) -> Tuple[int, int]:
     :param state: state to make the move
     :return: (int, int) tuple with x, y coordinates of the move (remember: 0 is the first row/column)
     """
-    max_depth = 7
+    max_depth = 5
     return minimax_move(state, max_depth, evaluate_count)
 
 def evaluate_count(state, player:str) -> float:
@@ -28,6 +28,8 @@ def evaluate_count(state, player:str) -> float:
     :param state: state to evaluate (instance of GameState)
     :param player: player to evaluate the state for (B or W)
     """
+    if player is None:
+        return 0
     opponent = state.get_board().opponent(player)
     player_pieces_count = state.get_board().num_pieces(player)
     opponent_pieces_count = state.get_board().num_pieces(opponent)
