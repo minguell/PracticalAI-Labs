@@ -60,3 +60,11 @@
 <!--
     Explicar qual e o porquê da implementação escolhida para o torneio.
 -->
+
+### Extras:
+
+<!--
+    Relatar a implementação do MCTS.
+
+    Relatar quaisquer outros extras implementados ao longo do trabalho (como melhorias não vistas em aula).
+-->
