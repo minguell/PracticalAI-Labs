@@ -2,9 +2,18 @@ import random
 from typing import Tuple, Callable
 
 def prune_test(state, current_depth:int, max_depth:int) -> bool:
+    """
+    Returns if the search should be pruned for the given game state and current depth
+    :param state: state to make the move (instance of GameState)
+    :param current_depth: current depth of search
+    :param max_depth: maximum depth of search (-1 = unlimited)
+    :return: bool representing whether the search should be pruned
+    """
     if max_depth != -1:
         if current_depth >= max_depth or state.is_terminal():
             return True
+        else:
+            return False
     else:
         return state.is_terminal()
 
