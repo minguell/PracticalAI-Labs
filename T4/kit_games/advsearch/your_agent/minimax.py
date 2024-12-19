@@ -17,10 +17,10 @@ def prune_test(state, current_depth:int, max_depth:int) -> bool:
     else:
         return state.is_terminal()
 
-def min(state, alpha, beta, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
+def min(state, alpha, beta, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
     raise NotImplementedError()
 
-def max(state, alpha, beta, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
+def max(state, alpha, beta, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
     raise NotImplementedError()
 
 def minimax_move(state, max_depth:int, eval_func:Callable) -> Tuple[int, int]:
