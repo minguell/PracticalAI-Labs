@@ -1,7 +1,14 @@
 import random
 from typing import Tuple, Callable
 
+def prune_test(state, max_depth:int):
+    raise NotImplementedError()
 
+def min(state, alpha, beta, max_depth:int, eval_func:Callable):
+    raise NotImplementedError()
+
+def max(state, alpha, beta, max_depth:int, eval_func:Callable):
+    raise NotImplementedError()
 
 def minimax_move(state, max_depth:int, eval_func:Callable) -> Tuple[int, int]:
     """
