@@ -15,7 +15,7 @@
     (iii) O minimax não perde para você quando você usa a sua melhor estratégia?
 -->
 
-## Avaliação das Implementações para o Othello:
+## Implementações para o Othello:
 
 ### Heurística Customizada:
 
@@ -31,3 +31,27 @@
     Explicar qual foi o critério de parada do algoritmo minimax para o agente de Othello (profundidade máxima fixa?
     aprofundamento iterativo parado por tempo? Etc...).
 -->
+
+### Avaliação do Minimax para o Othello:
+
+<!--
+    Realizar o mini-torneio abaixo, relatando quem ganhou (ou se houve empate) em cada partida e o número final de peças de cada
+    agente. Na lista a seguir, o nome do agente da esquerda começa a jogar naquela partida:
+    Partidas:
+    - Contagem de peças x Valor posicional;
+    - Valor posicional x Contagem de peças;
+    - Contagem de peças x Heurística customizada;
+    - Heurística customizada x Contagem de peças;
+    - Valor posicional x Heurística customizada;
+    - Heurística customizada x Valor posicional;
+    - MCTS x Contagem de peças;
+    - Contagem de peças x MCTS;
+    - MCTS x Valor posicional;
+    - Valor posicional x MCTS;
+    - MCTS x Heurística customizada;
+    - Heurística customizada x MCTS.
+
+    Relatar também qual foi a implementação mais bem sucedida de todas (com mais vitórias e, em caso de empates, que capturou mais
+    peças).
+-->
+
