@@ -55,3 +55,8 @@
     peças).
 -->
 
+### Implementação do Torneio:
+
+<!--
+    Explicar qual e o porquê da implementação escolhida para o torneio.
+-->
