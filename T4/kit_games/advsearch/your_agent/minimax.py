@@ -17,7 +17,7 @@ def prune_test(state, current_depth:int, max_depth:int) -> bool:
     else:
         return state.is_terminal()
 
-def min(state, alpha, beta, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
+def minimax_min(state, alpha:float, beta:float, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
     """
     Returns a move computed by the min algorithm with alpha-beta pruning for the given game state
     :param state: state to make the move (instance of GameState)
@@ -30,9 +30,23 @@ def min(state, alpha, beta, current_depth:int, max_depth:int, eval_func:Callable
                     and should return a float value representing the utility of the state for the player.
     :return: (float, int, int) tuple with the utility value, x, y coordinates of the move (remember: 0 is the first row/column)
     """
-    raise NotImplementedError()
+    if prune_test(state, current_depth, max_depth):
+        return eval_func(state, state.player), (-1, -1)
+    v = float('inf')
+    a = (-1, -1)
+    current_depth += 1
+    for move in state.legal_moves():
+        new_state = state.next_state(move)
+        u, _ = minimax_max(new_state, alpha, beta, current_depth, max_depth, eval_func)
+        if u < v:
+            v = u
+            a = move
+            beta = min(beta, v)
+            if alpha >= beta:
+                break
+    return v, a
 
-def max(state, alpha, beta, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
+def minimax_max(state, alpha:float, beta:float, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
     """
     Returns a move computed by the max algorithm with alpha-beta pruning for the given game state
     :param state: state to make the move (instance of GameState)
@@ -45,7 +59,21 @@ def max(state, alpha, beta, current_depth:int, max_depth:int, eval_func:Callable
                     and should return a float value representing the utility of the state for the player.
     :return: (float, int, int) tuple with the utility value, x, y coordinates of the move (remember: 0 is the first row/column)
     """
-    raise NotImplementedError()
+    if prune_test(state, current_depth, max_depth):
+        return eval_func(state, state.player), (-1, -1)
+    v = float('-inf')
+    a = (-1, -1)
+    current_depth += 1
+    for move in state.legal_moves():
+        new_state = state.next_state(move)
+        u, _ = minimax_min(new_state, alpha, beta, current_depth, max_depth, eval_func)
+        if u > v:
+            v = u
+            a = move
+            alpha = max(alpha, v)
+            if alpha >= beta:
+                break
+    return v, a
 
 def minimax_move(state, max_depth:int, eval_func:Callable) -> Tuple[int, int]:
     """
@@ -57,4 +85,5 @@ def minimax_move(state, max_depth:int, eval_func:Callable) -> Tuple[int, int]:
                     and should return a float value representing the utility of the state for the player.
     :return: (int, int) tuple with x, y coordinates of the move (remember: 0 is the first row/column)
     """
-    raise NotImplementedError()
+    _, move = minimax_max(state, float('-inf'), float('inf'), 0, max_depth, eval_func)
+    return move
