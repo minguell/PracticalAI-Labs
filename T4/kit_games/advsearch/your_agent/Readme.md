@@ -24,3 +24,10 @@
     referenciar aqui e explicar como que foi utilizado o conteúdo da referência (foi implementado exatamente como a referência,
     foi a inspiração para a implementação, foi uma combinação dessa e mais alguma outra referência, etc.).
 -->
+
+### Critério de Parada do Agente:
+
+<!--
+    Explicar qual foi o critério de parada do algoritmo minimax para o agente de Othello (profundidade máxima fixa?
+    aprofundamento iterativo parado por tempo? Etc...).
+-->
