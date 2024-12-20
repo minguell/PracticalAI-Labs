@@ -27,8 +27,13 @@
 
 ### Critério de Parada do Agente:
 
+Para o agente que utiliza a Heurística de Contagem de Peças, o critério de parada utilizado foi a profundidade máxima de 5 (partindo
+da profundidade 0 na raiz). Esse número foi escolhido a partir de testes empíricos em partidas consigo mesmo (o agente contra o próprio
+agente em algumas partidas); se o agente agisse de forma rápida, sem perder jogadas por inatividade, então esse seria um bom número de
+produndidade.
+
 <!--
-    Explicar qual foi o critério de parada do algoritmo minimax para o agente de Othello (profundidade máxima fixa?
+    Explicar qual foi o critério de parada do algoritmo minimax para os demais agentes de Othello (profundidade máxima fixa?
     aprofundamento iterativo parado por tempo? Etc...).
 -->
 
