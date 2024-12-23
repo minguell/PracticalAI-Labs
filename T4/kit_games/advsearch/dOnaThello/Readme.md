@@ -39,18 +39,25 @@ produndidade.
 
 ### Avaliação do Minimax para o Othello:
 
+Resultados do Mini-torneio:
+- MCTS x Contagem de peças:
+    - Ganhador: MCTS;
+    - Quantidade de peças ao final da partida: 37 (MCTS) x 27 (Contagem de peças);
+- Contagem de peças x MCTS:
+    - Ganhador: MCTS;
+    - Quantidade de peças ao final da partida: 24 (Contagem de peças) x 40 (MCTS);
+
 <!--
     Realizar o mini-torneio abaixo, relatando quem ganhou (ou se houve empate) em cada partida e o número final de peças de cada
     agente. Na lista a seguir, o nome do agente da esquerda começa a jogar naquela partida:
-    Partidas:
+
+    Partidas a serem documentadas:
     - Contagem de peças x Valor posicional;
     - Valor posicional x Contagem de peças;
     - Contagem de peças x Heurística customizada;
     - Heurística customizada x Contagem de peças;
     - Valor posicional x Heurística customizada;
     - Heurística customizada x Valor posicional;
-    - MCTS x Contagem de peças;
-    - Contagem de peças x MCTS;
     - MCTS x Valor posicional;
     - Valor posicional x MCTS;
     - MCTS x Heurística customizada;
