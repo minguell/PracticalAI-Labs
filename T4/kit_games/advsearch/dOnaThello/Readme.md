@@ -68,8 +68,17 @@ produndidade.
 
 ### Extras:
 
-<!--
-    Relatar a implementação do MCTS.
+Foi implementado o agente genérico com MCTS (testado em ambos os jogos). Essa implementação conta com uma nova classe chamada de
+mcts_node. Os objetos dessa classe apresentam os métodos descritos no algoritmo original do MCTS. Ou seja, há um método de seleção,
+um de expansão, um de simulação e um de retropropagação dos resultados para os nodos. Além disso, para facilitar o método de seleção,
+criou-se uma função de escolha de filho preferido a qual chama uma função de cálculo do UCB de todos os filhos de um nodo. A constante
+do UCB é ajustável no código e está atualmente configurada para raiz quadrada de 2. Ademais, há também um método para computar a melhor
+jogada a partir de um certo nodo.
 
+Com essas implementações, realizou-se o encadeamento desses métodos na função make_move() do arquivo mcts.py, onde os critérios de parada
+para a construção da árvore do algoritmo são o tempo máximo de 5s (determinado pelo próprio servidor de jogos como tempo máximo de timeout)
+e o número máximo de iterações do loop que é ajustável (atualmente está configurado para 2000).
+
+<!--
     Relatar quaisquer outros extras implementados ao longo do trabalho (como melhorias não vistas em aula).
 -->
