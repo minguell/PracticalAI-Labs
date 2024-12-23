@@ -41,7 +41,7 @@ class mcts_node:
         self.parent_move = parent_move
         self.wins = wins
         self.visits = visits
-        self.children = children
+        self.children = list(children)
 
     def is_leaf(self):
         """
@@ -72,13 +72,16 @@ class mcts_node:
             children_moves.add(child.parent_move)
 
         # Check if a move is already in the movements of children
+        new_child = self
+        if self.state.is_terminal():
+            return new_child
         legal_moves = set(self.state.legal_moves())
         for move in legal_moves:
+            new_child = mcts_node(self.state.next_state(move), self, move)
             if move not in children_moves:
-                new_child = mcts_node(self.state.next_state(move), self, move)
-                self.children.append(child)
+                self.children.append(new_child)
                 return new_child
-        return None
+        return new_child
 
     def get_root(self):
         """
@@ -102,7 +105,7 @@ class mcts_node:
         # Simulate the rest of the game randomly
         state = self.state
         while not state.is_terminal():
-            move = random.choice(state.legal_moves())
+            move = random.choice(list(state.legal_moves()))
             state = state.next_state(move)
         winner = state.winner()
         if winner == player:
@@ -154,13 +157,13 @@ def make_move(state) -> Tuple[int, int]:
     :param state: state to make the move
     :return: (int, int) tuple with x, y coordinates of the move (remember: 0 is the first row/column)
     """
-    max_iterations = 20
+    max_iterations = 2000 # Adjustable parameter
     max_time = 5
     initial_time = time.time()
     spent_time = 0
     iterations = 0
     root = mcts_node(state)
-    while spent_time < max_time and iterations > max_iterations:
+    while spent_time < max_time and iterations < max_iterations:
         node = root.select_node()
         node = node.expand_node()
         result = node.simulate_game()
