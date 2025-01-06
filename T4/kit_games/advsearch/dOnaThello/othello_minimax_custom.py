@@ -4,34 +4,65 @@ from ..othello.gamestate import GameState
 from ..othello.board import Board
 from .minimax import minimax_move
 
-# Voce pode criar funcoes auxiliares neste arquivo
-# e tambem modulos auxiliares neste pacote.
-#
-# Nao esqueca de renomear 'your_agent' com o nome
-# do seu agente.
-
-
-def make_move(state) -> Tuple[int, int]:
+# Funções auxiliares
+def count_stable_pieces(board: Board, player: str) -> int:
     """
-    Returns a move for the given game state
-    :param state: state to make the move
-    :return: (int, int) tuple with x, y coordinates of the move (remember: 0 is the first row/column)
+    Conta as peças estáveis (que não podem ser capturadas).
+    Isso inclui peças nas quinas ou completamente cercadas por outras peças do mesmo jogador.
     """
+    stable_count = 0
+    tiles = board.tiles
 
-    # o codigo abaixo apenas retorna um movimento aleatorio valido para
-    # a primeira jogada 
-    # Remova-o e coloque uma chamada para o minimax_move (que vc implementara' no modulo minimax).
-    # A chamada a minimax_move deve receber sua funcao evaluate como parametro.
+    
+    stable_positions = [(0, 0), (0, 7), (7, 0), (7, 7)]  # Quinas
+    for x, y in stable_positions:
+        if tiles[y][x] == player:
+            stable_count += 1
 
-    return random.choice([(2, 3), (4, 5), (5, 4), (3, 2)])
+
+    return stable_count
 
 
-def evaluate_custom(state, player:str) -> float:
+# Função principal de avaliação 
+def evaluate_custom(state: GameState, player: str) -> float:
     """
-    Evaluates an othello state from the point of view of the given player. 
-    If the state is terminal, returns its utility. 
-    If non-terminal, returns an estimate of its value based on your custom heuristic
-    :param state: state to evaluate (instance of GameState)
-    :param player: player to evaluate the state for (B or W)
+    Avalia um estado do jogo Othello do ponto de vista do jogador especificado.
+    Retorna um valor heurístico baseado em múltiplos critérios.
     """
-    return 0    # substitua pelo seu codigo
+    opponent = 'B' if player == 'W' else 'W'
+
+
+    if state.is_terminal():
+        winner = state.get_winner()
+        if winner == player:
+            return float('inf')  
+        elif winner == opponent:
+            return float('-inf')  
+        else:
+            return 0  
+
+
+    board = state.board
+
+    edge_positions = [(0, 0), (0, 7), (7, 0), (7, 7)] 
+    edge_value = sum(1 if board.tiles[y][x] == player else -1 for x, y in edge_positions)
+
+    player_moves = len(state.get_valid_moves(player))
+    opponent_moves = len(state.get_valid_moves(opponent))
+    mobility = player_moves - opponent_moves
+
+    player_count = board.tiles_str().count(player)
+    opponent_count = board.tiles_str().count(opponent)
+    piece_difference = player_count - opponent_count
+
+    stable_pieces = count_stable_pieces(board, player)
+
+    return 10 * edge_value + 5 * mobility + 2 * piece_difference + 3 * stable_pieces
+
+
+def make_move(state: GameState) -> Tuple[int, int]:
+    """
+    Retorna uma jogada para o estado do jogo usando minimax com poda alfa-beta
+    e a função de avaliação customizada.
+    """
+    return minimax_move(state, depth=4, evaluate=evaluate_custom)
