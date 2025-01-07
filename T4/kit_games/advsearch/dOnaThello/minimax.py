@@ -32,7 +32,7 @@ def minimax_min(state, player, alpha:float, beta:float, current_depth:int, max_d
     :return: (float, int, int) tuple with the utility value, x, y coordinates of the move (remember: 0 is the first row/column)
     """
     if prune_test(state, current_depth, max_depth):
-        return eval_func(state, state.player), (-1, -1)
+        return eval_func(state, player), (-1, -1)
     v = float('inf')
     a = (-1, -1)
     current_depth += 1
@@ -61,7 +61,7 @@ def minimax_max(state, player, alpha:float, beta:float, current_depth:int, max_d
     :return: (float, int, int) tuple with the utility value, x, y coordinates of the move (remember: 0 is the first row/column)
     """
     if prune_test(state, current_depth, max_depth):
-        return eval_func(state, state.player), (-1, -1)
+        return eval_func(state, player), (-1, -1)
     v = float('-inf')
     a = (-1, -1)
     current_depth += 1
