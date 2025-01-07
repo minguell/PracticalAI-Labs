@@ -1,4 +1,5 @@
 import random
+import math
 from typing import Tuple
 from ..tttm.gamestate import GameState
 from ..tttm.board import Board
@@ -24,11 +25,63 @@ def make_move(state: GameState) -> Tuple[int, int]:
     # a sua implementacao da poda alpha-beta. Use profundidade ilimitada na sua entrega,
     # uma vez que o jogo tem profundidade maxima 9. 
     # Preencha a funcao utility com o valor de um estado terminal e passe-a como funcao de avaliação para seu minimax_move
+   
+    _, best_move = minimax_alpha_beta(state, depth=-1, alpha=-math.inf, beta=math.inf, maximizing=True,player=state.player)
+    return best_move
 
-    return random.choice(range(3)), random.choice(range(3))
+def minimax_alpha_beta(state: GameState, depth: int, alpha: float, beta: float, maximizing: bool, player: str) -> Tuple[float, Tuple[int, int]]:
+    """
+    Implementação do algoritmo Minimax com poda alfa-beta.
+    :param state: estado atual do jogo
+    :param depth: profundidade máxima (-1 para ilimitada)
+    :param alpha: valor alfa para poda
+    :param beta: valor beta para poda
+    :param maximizing: True se for a vez do jogado; False, caso contrário
+    :param player: jogador para quem estamos calculando o valor ('B' ou 'W')
+    :return: Tupla (valor da avaliação, melhor movimento)
+    """
+
+    if state.is_terminal():
+        return utility(state, state.player), None
+
+    best_move = None
+
+    if maximizing:
+        max_eval = -math.inf
+        for move in state.legal_moves():
+            next_state = state.next_state(move)
+            eval, _ = minimax_alpha_beta(next_state, depth -1, alpha, beta, False, player)
+            if eval > max_eval:
+                max_eval = eval
+                best_move = move 
+            alpha = max(alpha, eval)
+            if beta <= alpha:
+                break
+        return max_eval, best_move
+    else:
+        min_eval = math.inf
+        for move in state.legal_moves():
+            next_state = state.next_state(move)
+            eval, _ = minimax_alpha_beta(next_state, depth -1, alpha, beta, True, player)
+            if eval < min_eval:
+                min_eval = eval
+                best_move = move
+            beta = min(beta, eval)
+            if beta <= alpha:
+                break
+        return min_eval, best_move
 
 def utility(state, player:str) -> float:
     """
     Retorna a utilidade de um estado (terminal) 
     """
-    return 0   # substitua pelo seu codigo
+    winner = state.board.check_winner()
+
+    if winner == player:
+        return -1
+    
+    elif winner != 'D' and winner is not None:
+        return -1
+    
+    return 0
+
