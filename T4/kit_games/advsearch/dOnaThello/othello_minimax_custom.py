@@ -28,24 +28,24 @@ def evaluate_custom(state: GameState, player: str) -> float:
     """
     opponent = 'B' if player == 'W' else 'W'
 
-    if state.is_terminal():
-        winner = state.winner()
-        if winner == player:
-            return float('inf')  
-        elif winner == opponent:
-            return float('-inf')
-        else:
-            return 0
+    # if state.is_terminal():
+    #     winner = state.winner()
+    #     if winner == player:
+    #         return float('inf')  
+    #     elif winner == opponent:
+    #         return float('-inf')
+    #     else:
+    #         return 0
 
     board = state.get_board()
 
-    edge_positions = [(0, 0), (0, 7), (7, 0), (7, 7)] 
-    edge_value = sum(1 if board.tiles[y][x] == player else -1 for x, y in edge_positions)
-
-    if state.player == player:
-        mobility = len(state.legal_moves())
+    if state.is_terminal():
+       mobility = 0
     else:
-        mobility = -1*len(state.legal_moves())
+        if state.player == player:
+            mobility = len(state.legal_moves())
+        else:
+            mobility = -1*len(state.legal_moves())
 
     player_count = board.num_pieces(player)
     opponent_count = board.num_pieces(opponent)
@@ -53,7 +53,7 @@ def evaluate_custom(state: GameState, player: str) -> float:
 
     stable_pieces = count_stable_pieces(board, player)
 
-    return 10 * edge_value + 5 * mobility + 2 * piece_difference + 3 * stable_pieces
+    return 5 * mobility + 2 * piece_difference + 13 * stable_pieces
 
 def make_move(state: GameState) -> Tuple[int, int]:
     """
