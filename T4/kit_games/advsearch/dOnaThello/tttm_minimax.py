@@ -75,7 +75,7 @@ def utility(state, player:str) -> float:
     """
     Retorna a utilidade de um estado (terminal) 
     """
-    winner = state.board.check_winner()
+    winner = state.winner()
 
     if winner == player:
         return -1
