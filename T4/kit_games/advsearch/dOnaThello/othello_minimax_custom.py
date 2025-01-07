@@ -28,15 +28,6 @@ def evaluate_custom(state: GameState, player: str) -> float:
     """
     opponent = 'B' if player == 'W' else 'W'
 
-    # if state.is_terminal():
-    #     winner = state.winner()
-    #     if winner == player:
-    #         return float('inf')  
-    #     elif winner == opponent:
-    #         return float('-inf')
-    #     else:
-    #         return 0
-
     board = state.get_board()
 
     if state.is_terminal():
