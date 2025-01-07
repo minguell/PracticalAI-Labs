@@ -43,7 +43,6 @@
 -->
 
 
-
 ### Critério de Parada do Agente:
 
 Para o agente que utiliza a Heurística de Contagem de Peças, o critério de parada utilizado foi a profundidade máxima de 5 (partindo
@@ -96,16 +95,19 @@ Resultados do Mini-torneio:
     - Ganhador: Heurística customizada;
     - Quantidade de peças ao final da partida: 36 (Heurística customizada) x 28 (MCTS);
 
-<!--
-    Relatar também qual foi a implementação mais bem sucedida de todas (com mais vitórias e, em caso de empates, que capturou mais
-    peças).
--->
+A implementação mais bem sucedida foi a de Valor Posicional, que capturou mais peças do que a Heurística Customizada (com a qual empatou).
+
+- Valor posicional:
+    - Vitórias no total: 4;
+    - Peças capturadas no total: 163;
+
+- Heurística Costumizada:
+    - Vitórias no total: 4;
+    - Peças capturadas no total: 141.
 
 ### Implementação do Torneio:
 
-<!--
-    Explicar qual e o porquê da implementação escolhida para o torneio.
--->
+Como todos os alunos terão as mesmas implementações para as heurísticas de contagem de peças e de valor posicional, o grupo escolheu a sua implementação com heurística customizada para colocar no torneio (que foi a segunda melhor implementação e é diferente das demais).
 
 ### Extras:
 
