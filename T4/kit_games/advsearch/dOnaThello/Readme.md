@@ -36,11 +36,7 @@
 
 ### Heurística Customizada:
 
-<!--
-    Explicar como funciona e como foi elaborada a heurística customizada. Se foi consultada alguma fonte (site, livro, ...),
-    referenciar aqui e explicar como que foi utilizado o conteúdo da referência (foi implementado exatamente como a referência,
-    foi a inspiração para a implementação, foi uma combinação dessa e mais alguma outra referência, etc.).
--->
+Basicamente a heurística customizada combina três critérios principais como mobilidade (multiplicado por 5), diferença de peças (multiplicado por 2) e peças estáveis (multiplicado por 13). O primeiro diz respeito ao número de jogadas válidas para o jogador, pela função *state.legal_moves()*, contando positivamente se for turno do jogador e negativamente se for turno do inimigo. O segundo critério conta a diferença do número de peças do jogador e do inimigo, com as funções *board_num_player()* para contar o número de peças de cada e uma subtração simples para o cálculo.  Por fim, peças estáveis é o critério que indica as peças que não podem cer capturadas por outros jogadores, geralmente estão na quina ou cercada pelas outras peças, sendo verificadas pela função *count_stable_pieces*
 
 
 ### Critério de Parada do Agente:
