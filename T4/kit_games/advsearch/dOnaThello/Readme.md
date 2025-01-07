@@ -8,12 +8,29 @@
 
 ## Avaliação do Minimax para o Tic-Tac-Toe Misere:
 
-<!-- 
-    Colocar aqui um relatório do desempenho da implementação do Minimax para o Tic-Tac-Toe Misere. Além disso, responder:
-    (i)   O minimax sempre ganha ou empata jogando contra o randomplayer?
-    (ii)  O minimax sempre empata consigo mesmo?
-    (iii) O minimax não perde para você quando você usa a sua melhor estratégia?
--->
+(i)   O minimax sempre ganha jogando contra o randomplayer.
+- Minimax TTTM x randomplayer:
+    - Ganhador: Minimax TTTM;
+        " W    W   B "
+        " W    B   B "
+        " W    B   . "
+
+- randomplayer x Minimax TTTM:
+    - Ganhador: Minimax TTTM;
+        " B    W   . "
+        " W    B   W "
+        " .    B   B "
+        
+(ii)  O minimax sempre empata consigo mesmo.
+        " N    B   W "
+        " W    B   B "
+        " B    W   W "
+        
+(iii) O minimax não perde para você ao usarmos nossa melhor estratégia; O melhor resultado obtido é o empate.
+        " W    B   B "
+        " B    B   W "
+        " W    W   B "
+        
 
 ## Implementações para o Othello:
 
@@ -25,6 +42,8 @@
     foi a inspiração para a implementação, foi uma combinação dessa e mais alguma outra referência, etc.).
 -->
 
+
+
 ### Critério de Parada do Agente:
 
 Para o agente que utiliza a Heurística de Contagem de Peças, o critério de parada utilizado foi a profundidade máxima de 5 (partindo
@@ -32,37 +51,52 @@ da profundidade 0 na raiz). Esse número foi escolhido a partir de testes empír
 agente em algumas partidas); se o agente agisse de forma rápida, sem perder jogadas por inatividade, então esse seria um bom número de
 produndidade.
 
-<!--
-    Explicar qual foi o critério de parada do algoritmo minimax para os demais agentes de Othello (profundidade máxima fixa?
-    aprofundamento iterativo parado por tempo? Etc...).
--->
 
 ### Avaliação do Minimax para o Othello:
 
 Resultados do Mini-torneio:
+
+- Contagem de peças x Valor posicional:
+    - Ganhador: Valor posicional;
+    - Quantidade de peças ao final da partida: 23 (Contagem de peças) x 41 (Valor posicional);
+
+- Valor posicional x Contagem de peças:
+    - Ganhador: Valor posicional;
+    - Quantidade de peças ao final da partida: 45 (Valor posicional) x 19 (Contagem de peças);
+
+- Contagem de peças x Heurística customizada:
+    - Ganhador: Heurística customizada;
+    - Quantidade de peças ao final da partida: 19 (contagem de peças) x 45 (Heurística customizada);
+
+- Heurística customizada x Contagem de peças:
+    - Ganhador: Heurística customizada;
+    - Quantidade de peças ao final da partida: 45 (Heurística customizada) x 19 (Contagem de peças);
+
+- Valor posicional x Heurística customizada:
+    - Ganhador: Valor posicional;
+    - Quantidades de peças ao final da partida: 33 (Valor posicional) x 31 (Heurística customizada);
+
+- Heurística customizada x Valor posicional:
+    - Ganhador: Valor posicional;
+    - Quantidade de peças ao final da partida: 20 (Heurística customizada) x 44 (Valor posicional);
+
 - MCTS x Contagem de peças:
-    - Ganhador: MCTS;
-    - Quantidade de peças ao final da partida: 37 (MCTS) x 27 (Contagem de peças);
+    - Ganhador: Contagem de peças;
+    - Quantidade de peças ao final da partida: 0 (MCTS) x 26 (Contagem de peças);
+
 - Contagem de peças x MCTS:
-    - Ganhador: MCTS;
-    - Quantidade de peças ao final da partida: 24 (Contagem de peças) x 40 (MCTS);
+    - Ganhador: Contagem de peças;
+    - Quantidade de peças ao final da partida: 38 (Contagem de peças) x 26 (MCTS);
+
+- MCTS x Heurística customizada:
+    - Ganhador: Heurística customizada;
+    - Quantidade de peças ao final da partida: 4 (MCTS) x 58 (Heurística customizada);
+
+- Heurística customizada x MCTS:
+    - Ganhador: Heurística customizada;
+    - Quantidade de peças ao final da partida: 36 (Heurística customizada) x 28 (MCTS);
 
 <!--
-    Realizar o mini-torneio abaixo, relatando quem ganhou (ou se houve empate) em cada partida e o número final de peças de cada
-    agente. Na lista a seguir, o nome do agente da esquerda começa a jogar naquela partida:
-
-    Partidas a serem documentadas:
-    - Contagem de peças x Valor posicional;
-    - Valor posicional x Contagem de peças;
-    - Contagem de peças x Heurística customizada;
-    - Heurística customizada x Contagem de peças;
-    - Valor posicional x Heurística customizada;
-    - Heurística customizada x Valor posicional;
-    - MCTS x Valor posicional;
-    - Valor posicional x MCTS;
-    - MCTS x Heurística customizada;
-    - Heurística customizada x MCTS.
-
     Relatar também qual foi a implementação mais bem sucedida de todas (com mais vitórias e, em caso de empates, que capturou mais
     peças).
 -->
@@ -85,7 +119,3 @@ jogada a partir de um certo nodo.
 Com essas implementações, realizou-se o encadeamento desses métodos na função make_move() do arquivo mcts.py, onde os critérios de parada
 para a construção da árvore do algoritmo são o tempo máximo de 5s (determinado pelo próprio servidor de jogos como tempo máximo de timeout)
 e o número máximo de iterações do loop que é ajustável (atualmente está configurado para 2000).
-
-<!--
-    Relatar quaisquer outros extras implementados ao longo do trabalho (como melhorias não vistas em aula).
--->
