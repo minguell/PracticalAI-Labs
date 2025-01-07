@@ -36,16 +36,18 @@
 
 ### Heurística Customizada:
 
-Basicamente a heurística customizada combina três critérios principais como mobilidade (multiplicado por 5), diferença de peças (multiplicado por 2) e peças estáveis (multiplicado por 13). O primeiro diz respeito ao número de jogadas válidas para o jogador, pela função *state.legal_moves()*, contando positivamente se for turno do jogador e negativamente se for turno do inimigo. O segundo critério conta a diferença do número de peças do jogador e do inimigo, com as funções *board_num_player()* para contar o número de peças de cada e uma subtração simples para o cálculo.  Por fim, peças estáveis é o critério que indica as peças que não podem cer capturadas por outros jogadores, geralmente estão na quina ou cercada pelas outras peças, sendo verificadas pela função *count_stable_pieces*
-
+Basicamente a heurística customizada combina três critérios principais como mobilidade (multiplicado por 5), diferença de peças (multiplicado por 2) e peças estáveis (multiplicado por 13). O primeiro diz respeito ao número de jogadas válidas para o jogador, pela função state.legal_moves(), contando positivamente se for turno do jogador e negativamente se for turno do inimigo. O segundo critério conta a diferença do número de peças do jogador e do inimigo, com as funções board_num_player() para contar o número de peças de cada e uma subtração simples para o cálculo.  Por fim, peças estáveis é o critério que indica as peças que não podem cer capturadas por outros jogadores, geralmente estão na quina ou cercada pelas outras peças, sendo verificadas pela função count_stable_pieces.
 
 ### Critério de Parada do Agente:
 
-Para o agente que utiliza a Heurística de Contagem de Peças, o critério de parada utilizado foi a profundidade máxima de 5 (partindo
+Para o agente que utiliza a Heurística de Contagem de peças, o critério de parada utilizado foi a profundidade máxima de 5 (partindo
 da profundidade 0 na raiz). Esse número foi escolhido a partir de testes empíricos em partidas consigo mesmo (o agente contra o próprio
 agente em algumas partidas); se o agente agisse de forma rápida, sem perder jogadas por inatividade, então esse seria um bom número de
-produndidade.
+profundidade.
 
+Já o agente com heurística de Valor posicional tem critério de parada por profundida máxima 4, valor adquirido empiricamente.
+
+Por fim, o agente com heurística customizada tem critério de parada de profundidade máxima de 4, também testado empiricamente.
 
 ### Avaliação do Minimax para o Othello:
 
@@ -89,7 +91,7 @@ Resultados do Mini-torneio:
 
 - Heurística customizada x MCTS:
     - Ganhador: Heurística customizada;
-    - Quantidade de peças ao final da partida: 36 (Heurística customizada) x 28 (MCTS);
+    - Quantidade de peças ao final da partida: 36 (Heurística customizada) x 28 (MCTS).
 
 A implementação mais bem sucedida foi a de Valor Posicional, que capturou mais peças do que a Heurística Customizada (com a qual empatou).
 
