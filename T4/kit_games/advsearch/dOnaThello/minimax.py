@@ -15,9 +15,10 @@ def prune_test(state, current_depth:int, max_depth:int) -> bool:
         else:
             return False
     else:
-        return state.is_terminal()
+        is_terminal = state.is_terminal()
+        return is_terminal
 
-def minimax_min(state, alpha:float, beta:float, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
+def minimax_min(state, player, alpha:float, beta:float, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
     """
     Returns a move computed by the min algorithm with alpha-beta pruning for the given game state
     :param state: state to make the move (instance of GameState)
@@ -37,7 +38,7 @@ def minimax_min(state, alpha:float, beta:float, current_depth:int, max_depth:int
     current_depth += 1
     for move in state.legal_moves():
         new_state = state.next_state(move)
-        u, _ = minimax_max(new_state, alpha, beta, current_depth, max_depth, eval_func)
+        u, _ = minimax_max(new_state, player, alpha, beta, current_depth, max_depth, eval_func)
         if u < v:
             v = u
             a = move
@@ -46,7 +47,7 @@ def minimax_min(state, alpha:float, beta:float, current_depth:int, max_depth:int
                 break
     return v, a
 
-def minimax_max(state, alpha:float, beta:float, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
+def minimax_max(state, player, alpha:float, beta:float, current_depth:int, max_depth:int, eval_func:Callable) -> Tuple[float, Tuple[int, int]]:
     """
     Returns a move computed by the max algorithm with alpha-beta pruning for the given game state
     :param state: state to make the move (instance of GameState)
@@ -66,7 +67,7 @@ def minimax_max(state, alpha:float, beta:float, current_depth:int, max_depth:int
     current_depth += 1
     for move in state.legal_moves():
         new_state = state.next_state(move)
-        u, _ = minimax_min(new_state, alpha, beta, current_depth, max_depth, eval_func)
+        u, _ = minimax_min(new_state, player, alpha, beta, current_depth, max_depth, eval_func)
         if u > v:
             v = u
             a = move
@@ -85,5 +86,5 @@ def minimax_move(state, max_depth:int, eval_func:Callable) -> Tuple[int, int]:
                     and should return a float value representing the utility of the state for the player.
     :return: (int, int) tuple with x, y coordinates of the move (remember: 0 is the first row/column)
     """
-    _, move = minimax_max(state, float('-inf'), float('inf'), 0, max_depth, eval_func)
+    _, move = minimax_max(state, state.player, float('-inf'), float('inf'), 0, max_depth, eval_func)
     return move
